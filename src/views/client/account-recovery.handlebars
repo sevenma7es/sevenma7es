@@ -1,0 +1,20 @@
+<section class="bg-[var(--main-bg-light)] dark:bg-[var(--main-bg-dark)] text-sm text-[var(--main-text-light)] dark:text-[var(--main-text-dark)]">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-[var(--main-text-light)] space-x-3 dark:text-white">
+      <span class="self-center text-2xl font-semibold whitespace-nowrap">{{#if enterprise}} {{enterprise.name}} {{else}} Empresa {{/if}}</span>
+    </a>
+    <div class="w-full p-6 rounded-lg shadow dark:border-none md:mt-0 sm:max-w-md sm:p-8 bg-[var(--main-light-1)] dark:bg-[var(--main-dark-5)]">
+      <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-[var(--main-text-light)] md:text-2xl dark:text-white">
+        ¿Te olvidate tu contraseña?
+      </h1>
+      <p class="font-light text-gray-500 dark:text-gray-400">No te preocupes! ingresa tu dirección de correo electrónico y te enviaremos un código para que puedas recuperar tu cuenta!</p>
+      <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="/api/client/sessions/account/request-reset" method="post">
+        <div>
+          <label for="email" class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Tu email</label>
+          <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-[var(--main-dark-2)] dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ejemplo@ejemplo.com" required="" />
+        </div>
+        <button type="submit" class="w-full bg-[var(--main-bg-dark)] dark:bg-[var(--main-bg-light)] text-[var(--main-text-dark)] dark:text-[var(--main-text-light)] font-semibold rounded-md py-2 px-4">Reset password</button>
+      </form>
+    </div>
+  </div>
+</section>

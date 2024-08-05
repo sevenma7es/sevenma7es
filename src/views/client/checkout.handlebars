@@ -1,0 +1,394 @@
+<section class="py-8 antialiased">
+  <form action="#" class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+    <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
+      <div class="min-w-0 flex-1 space-y-8">
+        <ol
+          class="items-center flex w-full text-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:text-base">
+          <li
+            class="after:border-1 flex items-center text-primary-700 before:mx-6 before:hidden before:h-1 before:w-full before:border-b before:border-gray-200 dark:text-primary-500 dark:before:border-[var(--main-dark-8)] sm:before:inline-block sm:before:content-[''] md:w-full xl:before:mx-10 after:mx-6 after:hidden after:h-1 after:w-full after:border-b after:border-gray-200 dark:text-primary-500 dark:after:border-[var(--main-dark-8)] sm:after:inline-block sm:after:content-[''] xl:after:mx-10">
+            <span
+              class="flex items-center after:mx-2 after:text-gray-200 after:content-['/'] dark:after:text-gray-500 sm:after:hidden">
+              <svg class="me-2 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              Checkout
+            </span>
+          </li>
+        </ol>
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-[var(--main-text-light)] dark:text-white">Detalle</h2>
+
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label for="your_name"
+                class="mb-2 block text-sm font-medium text-[var(--main-text-light)] dark:text-white"> Nombre completo
+              </label>
+              <input type="text" id="your_name"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-[var(--main-text-light)] dark:border-[var(--main-dark-8)] dark:bg-[var(--main-dark-7)] dark:text-white dark:placeholder:text-gray-400"
+                placeholder="Juan Perez" required />
+            </div>
+
+            <div>
+              <label for="your_email"
+                class="mb-2 block text-sm font-medium text-[var(--main-text-light)] dark:text-white"> Email* </label>
+              <input type="email" id="your_email"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-[var(--main-text-light)] dark:border-[var(--main-dark-8)] dark:bg-[var(--main-dark-8)] dark:text-white dark:placeholder:text-gray-400 dark:"
+                placeholder="ejemplo@ejemplo.com" required />
+            </div>
+
+            <div>
+              <div class="mb-2 flex items-center gap-2">
+                <label for="select-country-input-3"
+                  class="block text-sm font-medium text-[var(--main-text-light)] dark:text-white"> País* </label>
+              </div>
+              <select id="select-country-input-3"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-[var(--main-text-light)] dark:border-[var(--main-dark-8)] dark:bg-[var(--main-dark-8)] dark:text-white dark:placeholder:text-gray-400 dark:">
+                <option selected>Argentina</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="mb-2 flex items-center gap-2">
+                <label for="select-province-input-3"
+                  class="block text-sm font-medium text-[var(--main-text-light)] dark:text-white"> Provincia* </label>
+              </div>
+              <select id="select-province-input-3"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-[var(--main-text-light)] dark:border-[var(--main-dark-8)] dark:bg-[var(--main-dark-8)] dark:text-white dark:placeholder:text-gray-400 dark:">
+              </select>
+            </div>
+
+            <div>
+              <div class="mb-2 flex items-center gap-2">
+                <label for="select-city-input-3"
+                  class="block text-sm font-medium text-[var(--main-text-light)] dark:text-white"> Localidad* </label>
+              </div>
+              <select id="select-city-input-3"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-[var(--main-text-light)] dark:border-[var(--main-dark-8)] dark:bg-[var(--main-dark-8)] dark:text-white dark:placeholder:text-gray-400 dark:">
+              </select>
+            </div>
+
+            <div>
+              <label for="your_postal_code"
+                class="mb-2 block text-sm font-medium text-[var(--main-text-light)] dark:text-white"> Código Postal*
+              </label>
+              <input type="num" id="your_postal_code"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-[var(--main-text-light)] dark:border-[var(--main-dark-8)] dark:bg-[var(--main-dark-8)] dark:text-white dark:placeholder:text-gray-400 dark:"
+                placeholder="6700" required />
+            </div>
+
+            <div>
+              <label for="phone-input-3"
+                class="mb-2 block text-sm font-medium text-[var(--main-text-light)] dark:text-white"> Número de
+                teléfono* </label>
+              <div class="flex items-center">
+                <div id="dropdown-phone-button-3" data-dropdown-toggle="dropdown-phone-3"
+                  class="z-10 inline-flex shrink-0 items-center rounded-s-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-center text-sm font-medium text-[var(--main-text-light)] hover:bg-gray-200 focus:outline-none dark:border-[var(--main-dark-8)] dark:bg-[var(--main-dark-8)] dark:text-white dark:hover:bg-[var(--main-dark-8)]"
+                  type="button">
+                  <svg class="me-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" width="19.6" height="14" viewBox="0 0 36 36"
+                    aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet">
+                    <path fill="#75AADB"
+                      d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v18z" />
+                    <path fill="#EEE" d="M0 13h36v10H0z" />
+                    <path fill="#FCBF49"
+                      d="M18 13l.488 2.548l1.426-2.167l-.525 2.54l2.146-1.457l-1.457 2.147l2.541-.524l-2.167 1.425L23 18l-2.548.488l2.167 1.426l-2.541-.525l1.457 2.146l-2.146-1.457l.525 2.541l-1.426-2.167L18 23l-.488-2.548l-1.425 2.167l.524-2.541l-2.147 1.457l1.457-2.146l-2.54.525l2.167-1.426L13 18l2.548-.488l-2.167-1.425l2.54.524l-1.457-2.147l2.147 1.457l-.524-2.54l1.425 2.167z" />
+                    <path fill="#843511"
+                      d="M18 14.33l.242 1.265l.116.605l.339-.514l.708-1.076l-.261 1.261l-.125.604l.51-.346l1.066-.723l-.723 1.066l-.346.51l.603-.125l1.262-.26l-1.076.708l-.515.337l.605.116L21.67 18l-1.265.242l-.605.116l.514.339l1.076.708l-1.262-.261l-.604-.125l.346.51l.723 1.065l-1.065-.723l-.51-.346l.125.604l.261 1.262l-.708-1.076l-.338-.515l-.116.605L18 21.67l-.242-1.265l-.116-.605l-.339.515l-.708 1.076l.26-1.262l.125-.603l-.51.346l-1.066.723l.723-1.066l.346-.51l-.604.125l-1.261.261l1.076-.708l.514-.339l-.605-.116L14.33 18l1.265-.242l.605-.116l-.515-.339l-1.076-.708l1.261.26l.603.125l-.346-.51l-.724-1.066l1.066.724l.51.346l-.125-.603l-.26-1.261l.708 1.076l.339.515l.116-.605L18 14.33M18 13l-.488 2.548l-1.425-2.167l.524 2.541l-2.147-1.457l1.457 2.147l-2.54-.524l2.167 1.425L13 18l2.548.488l-2.167 1.426l2.54-.525l-1.457 2.146l2.147-1.457l-.524 2.541l1.425-2.167L18 23l.488-2.548l1.426 2.167l-.525-2.541l2.146 1.457l-1.457-2.146l2.541.525l-2.167-1.426L23 18l-2.548-.488l2.167-1.425l-2.541.524l1.457-2.147l-2.146 1.457l.525-2.541l-1.426 2.167L18 13zm1.914.381h.005h-.005zm1.621 1.083h.005h-.005zm1.084 1.623h.005h-.005z" />
+                    <circle fill="#FCBF49" cx="18" cy="18" r="2" />
+                    <path fill="#843511"
+                      d="M18 20.125c-1.172 0-2.125-.953-2.125-2.125s.953-2.125 2.125-2.125s2.125.953 2.125 2.125s-.953 2.125-2.125 2.125zm0-4c-1.034 0-1.875.841-1.875 1.875s.841 1.875 1.875 1.875s1.875-.841 1.875-1.875s-.841-1.875-1.875-1.875z" />
+                    <path fill="#C16540"
+                      d="M17.801 17.774c0 .155-.261.28-.583.28c-.323 0-.584-.125-.584-.28c0-.155.261-.28.584-.28c.322 0 .583.125.583.28zm1.553-.024c0-.161-.266-.292-.594-.292c-.328 0-.594.13-.594.292s.266.292.594.292c.329 0 .594-.131.594-.292z" />
+                    <path fill="#ED8662"
+                      d="M17.463 18.874c0-.126.246-.229.548-.229c.303 0 .548.102.548.229c0 .126-.246.229-.548.229c-.303 0-.548-.103-.548-.229z" />
+                  </svg>
+                  +54
+                </div>
+                <div id="dropdown-phone-3"
+                  class="z-10 hidden w-56 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-[var(--main-dark-8)]">
+                  <ul class="p-2 text-sm font-medium text-[var(--main-dark-8)] dark:text-gray-200"
+                    aria-labelledby="dropdown-phone-button-2">
+                    <li>
+                      <button type="button"
+                        class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-[var(--main-text-light)] dark:text-gray-400 dark:hover:bg-[var(--main-dark-8)] dark:hover:text-white"
+                        role="menuitem">
+                        <span class="inline-flex items-center">
+                          <svg fill="none" aria-hidden="true" class="me-2 h-4 w-4" viewBox="0 0 20 15">
+                            <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
+                            <mask id="a" style="mask-type:luminance" width="20" height="15" x="0" y="0"
+                              maskUnits="userSpaceOnUse">
+                              <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
+                            </mask>
+                            <g mask="url(#a)">
+                              <path fill="#D02F44" fill-rule="evenodd"
+                                d="M19.6.5H0v.933h19.6V.5zm0 1.867H0V3.3h19.6v-.933zM0 4.233h19.6v.934H0v-.934zM19.6 6.1H0v.933h19.6V6.1zM0 7.967h19.6V8.9H0v-.933zm19.6 1.866H0v.934h19.6v-.934zM0 11.7h19.6v.933H0V11.7zm19.6 1.867H0v.933h19.6v-.933z"
+                                clip-rule="evenodd" />
+                              <path fill="#46467F" d="M0 .5h8.4v6.533H0z" />
+                              <g filter="url(#filter0_d_343_121520)">
+                                <path fill="url(#paint0_linear_343_121520)" fill-rule="evenodd"
+                                  d="M1.867 1.9a.467.467 0 11-.934 0 .467.467 0 01.934 0zm1.866 0a.467.467 0 11-.933 0 .467.467 0 01.933 0zm1.4.467a.467.467 0 100-.934.467.467 0 000 .934zM7.467 1.9a.467.467 0 11-.934 0 .467.467 0 01.934 0zM2.333 3.3a.467.467 0 100-.933.467.467 0 000 .933zm2.334-.467a.467.467 0 11-.934 0 .467.467 0 01.934 0zm1.4.467a.467.467 0 100-.933.467.467 0 000 .933zm1.4.467a.467.467 0 11-.934 0 .467.467 0 01.934 0zm-2.334.466a.467.467 0 100-.933.467.467 0 000 .933zm-1.4-.466a.467.467 0 11-.933 0 .467.467 0 01.933 0zM1.4 4.233a.467.467 0 100-.933.467.467 0 000 .933zm1.4.467a.467.467 0 11-.933 0 .467.467 0 01.933 0zm1.4.467a.467.467 0 100-.934.467.467 0 000 .934zM6.533 4.7a.467.467 0 11-.933 0 .467.467 0 01.933 0zM7 6.1a.467.467 0 100-.933.467.467 0 000 .933zm-1.4-.467a.467.467 0 11-.933 0 .467.467 0 01.933 0zM3.267 6.1a.467.467 0 100-.933.467.467 0 000 .933zm-1.4-.467a.467.467 0 11-.934 0 .467.467 0 01.934 0z"
+                                  clip-rule="evenodd" />
+                              </g>
+                            </g>
+                            <defs>
+                              <linearGradient id="paint0_linear_343_121520" x1=".933" x2=".933" y1="1.433" y2="6.1"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#fff" />
+                                <stop offset="1" stop-color="#F0F0F0" />
+                              </linearGradient>
+                              <filter id="filter0_d_343_121520" width="6.533" height="5.667" x=".933" y="1.433"
+                                color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feColorMatrix in="SourceAlpha" result="hardAlpha"
+                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                <feOffset dy="1" />
+                                <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" />
+                                <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_343_121520" />
+                                <feBlend in="SourceGraphic" in2="effect1_dropShadow_343_121520" result="shape" />
+                              </filter>
+                            </defs>
+                          </svg>
+                          United States (+1)
+                        </span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button"
+                        class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-[var(--main-text-light)] dark:text-gray-400 dark:hover:bg-[var(--main-dark-8)] dark:hover:text-white"
+                        role="menuitem">
+                        <span class="inline-flex items-center">
+                          <svg class="me-2 h-4 w-4" fill="none" viewBox="0 0 20 15">
+                            <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
+                            <mask id="a" style="mask-type:luminance" width="20" height="15" x="0" y="0"
+                              maskUnits="userSpaceOnUse">
+                              <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
+                            </mask>
+                            <g mask="url(#a)">
+                              <path fill="#0A17A7" d="M0 .5h19.6v14H0z" />
+                              <path fill="#fff" fill-rule="evenodd"
+                                d="M-.898-.842L7.467 4.8V-.433h4.667V4.8l8.364-5.642L21.542.706l-6.614 4.46H19.6v4.667h-4.672l6.614 4.46-1.044 1.549-8.365-5.642v5.233H7.467V10.2l-8.365 5.642-1.043-1.548 6.613-4.46H0V5.166h4.672L-1.941.706-.898-.842z"
+                                clip-rule="evenodd" />
+                              <path stroke="#DB1F35" stroke-linecap="round" stroke-width=".667"
+                                d="M13.067 4.933L21.933-.9M14.009 10.088l7.947 5.357M5.604 4.917L-2.686-.67M6.503 10.024l-9.189 6.093" />
+                              <path fill="#E6273E" fill-rule="evenodd"
+                                d="M0 8.9h8.4v5.6h2.8V8.9h8.4V6.1h-8.4V.5H8.4v5.6H0v2.8z" clip-rule="evenodd" />
+                            </g>
+                          </svg>
+                          United Kingdom (+44)
+                        </span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button"
+                        class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-[var(--main-text-light)] dark:text-gray-400 dark:hover:bg-[var(--main-dark-8)] dark:hover:text-white"
+                        role="menuitem">
+                        <span class="inline-flex items-center">
+                          <svg class="me-2 h-4 w-4" fill="none" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
+                            <mask id="a" style="mask-type:luminance" width="20" height="15" x="0" y="0"
+                              maskUnits="userSpaceOnUse">
+                              <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
+                            </mask>
+                            <g mask="url(#a)">
+                              <path fill="#0A17A7" d="M0 .5h19.6v14H0z" />
+                              <path fill="#fff" stroke="#fff" stroke-width=".667"
+                                d="M0 .167h-.901l.684.586 3.15 2.7v.609L-.194 6.295l-.14.1v1.24l.51-.319L3.83 5.033h.73L7.7 7.276a.488.488 0 00.601-.767L5.467 4.08v-.608l2.987-2.134a.667.667 0 00.28-.543V-.1l-.51.318L4.57 2.5h-.73L.66.229.572.167H0z" />
+                              <path fill="url(#paint0_linear_374_135177)" fill-rule="evenodd"
+                                d="M0 2.833V4.7h3.267v2.133c0 .369.298.667.666.667h.534a.667.667 0 00.666-.667V4.7H8.2a.667.667 0 00.667-.667V3.5a.667.667 0 00-.667-.667H5.133V.5H3.267v2.333H0z"
+                                clip-rule="evenodd" />
+                              <path fill="url(#paint1_linear_374_135177)" fill-rule="evenodd"
+                                d="M0 3.3h3.733V.5h.934v2.8H8.4v.933H4.667v2.8h-.934v-2.8H0V3.3z" clip-rule="evenodd" />
+                              <path fill="#fff" fill-rule="evenodd"
+                                d="M4.2 11.933l-.823.433.157-.916-.666-.65.92-.133.412-.834.411.834.92.134-.665.649.157.916-.823-.433zm9.8.7l-.66.194.194-.66-.194-.66.66.193.66-.193-.193.66.193.66-.66-.194zm0-8.866l-.66.193.194-.66-.194-.66.66.193.66-.193-.193.66.193.66-.66-.193zm2.8 2.8l-.66.193.193-.66-.193-.66.66.193.66-.193-.193.66.193.66-.66-.193zm-5.6.933l-.66.193.193-.66-.193-.66.66.194.66-.194-.193.66.193.66-.66-.193zm4.2 1.167l-.33.096.096-.33-.096-.33.33.097.33-.097-.097.33.097.33-.33-.096z"
+                                clip-rule="evenodd" />
+                            </g>
+                            <defs>
+                              <linearGradient id="paint0_linear_374_135177" x1="0" x2="0" y1=".5" y2="7.5"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#fff" />
+                                <stop offset="1" stop-color="#F0F0F0" />
+                              </linearGradient>
+                              <linearGradient id="paint1_linear_374_135177" x1="0" x2="0" y1=".5" y2="7.033"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF2E3B" />
+                                <stop offset="1" stop-color="#FC0D1B" />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                          Australia (+61)
+                        </span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button"
+                        class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-[var(--main-text-light)] dark:text-gray-400 dark:hover:bg-[var(--main-dark-8)] dark:hover:text-white"
+                        role="menuitem">
+                        <span class="inline-flex items-center">
+                          <svg class="me-2 h-4 w-4" fill="none" viewBox="0 0 20 15">
+                            <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
+                            <mask id="a" style="mask-type:luminance" width="20" height="15" x="0" y="0"
+                              maskUnits="userSpaceOnUse">
+                              <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
+                            </mask>
+                            <g mask="url(#a)">
+                              <path fill="#262626" fill-rule="evenodd" d="M0 5.167h19.6V.5H0v4.667z"
+                                clip-rule="evenodd" />
+                              <g filter="url(#filter0_d_374_135180)">
+                                <path fill="#F01515" fill-rule="evenodd" d="M0 9.833h19.6V5.167H0v4.666z"
+                                  clip-rule="evenodd" />
+                              </g>
+                              <g filter="url(#filter1_d_374_135180)">
+                                <path fill="#FFD521" fill-rule="evenodd" d="M0 14.5h19.6V9.833H0V14.5z"
+                                  clip-rule="evenodd" />
+                              </g>
+                            </g>
+                            <defs>
+                              <filter id="filter0_d_374_135180" width="19.6" height="4.667" x="0" y="5.167"
+                                color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feColorMatrix in="SourceAlpha" result="hardAlpha"
+                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                <feOffset />
+                                <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" />
+                                <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_374_135180" />
+                                <feBlend in="SourceGraphic" in2="effect1_dropShadow_374_135180" result="shape" />
+                              </filter>
+                              <filter id="filter1_d_374_135180" width="19.6" height="4.667" x="0" y="9.833"
+                                color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feColorMatrix in="SourceAlpha" result="hardAlpha"
+                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                <feOffset />
+                                <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" />
+                                <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_374_135180" />
+                                <feBlend in="SourceGraphic" in2="effect1_dropShadow_374_135180" result="shape" />
+                              </filter>
+                            </defs>
+                          </svg>
+                          Germany (+49)
+                        </span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button"
+                        class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-[var(--main-text-light)] dark:text-gray-400 dark:hover:bg-[var(--main-dark-8)] dark:hover:text-white"
+                        role="menuitem">
+                        <span class="inline-flex items-center">
+                          <svg class="me-2 h-4 w-4" fill="none" viewBox="0 0 20 15">
+                            <rect width="19.1" height="13.5" x=".25" y=".75" fill="#fff" stroke="#F5F5F5"
+                              stroke-width=".5" rx="1.75" />
+                            <mask id="a" style="mask-type:luminance" width="20" height="15" x="0" y="0"
+                              maskUnits="userSpaceOnUse">
+                              <rect width="19.1" height="13.5" x=".25" y=".75" fill="#fff" stroke="#fff"
+                                stroke-width=".5" rx="1.75" />
+                            </mask>
+                            <g mask="url(#a)">
+                              <path fill="#F44653" d="M13.067.5H19.6v14h-6.533z" />
+                              <path fill="#1035BB" fill-rule="evenodd" d="M0 14.5h6.533V.5H0v14z" clip-rule="evenodd" />
+                            </g>
+                          </svg>
+                          France (+33)
+                        </span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="relative w-full">
+                  <input type="text" id="phone-input"
+                    class="z-20 block w-full rounded-e-lg border border-s-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-[var(--main-text-light)] dark:border-[var(--main-dark-8)] dark:border-s-[var(--main-dark-8)] dark:bg-[var(--main-dark-8)] dark:text-white dark:placeholder:text-gray-400 dark:"
+                    pattern="(?:\(?\d{1,4}\)?[-\s]?)?\d{6,8}" placeholder="123-456-7890" required />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-xl font-semibold text-[var(--main-text-light)] dark:text-white">Método
+            de Pago</h3>
+
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+            <div
+              class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-[var(--main-dark-8)] dark:bg-[var(--main-dark-7)]">
+              <div class="flex items-start">
+                <div class="flex h-5 items-center">
+                  <input id="whatsapp" aria-describedby="credit-card-text" type="radio" name="payment-method" value=""
+                    class="h-4 w-4 border-gray-300 bg-white text-primary-600 dark:border-[var(--main-dark-8)] dark:bg-[var(--main-dark-8)]"
+                    checked />
+                </div>
+
+                <div class="ms-4 text-sm">
+                  <label for="credit-card"
+                    class="font-medium leading-none text-[var(--main-text-light)] dark:text-white"> Cordinación por
+                    WhatsApp </label>
+                  <p id="credit-card-text" class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400">Te
+                    redirigimos a nuestro chat para que coordines con
+                    nosotros.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 w-full space-y-6 sm:mt-8 lg:mt-0 lg:max-w-xs xl:max-w-md">
+        <div class="flow-root">
+          <div class="-my-3 divide-y divide-gray-200 dark:divide-[var(--main-dark-7)]">
+            <dl class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Subtotal</dt>
+              <dd class="text-base font-medium text-[var(--main-text-light)] dark:text-white"
+                id="checkout_parcial_total"></dd>
+            </dl>
+
+            <dl class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Descuentos</dt>
+              <dd class="text-base font-medium text-green-500">0</dd>
+            </dl>
+
+            <dl class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-base font-bold text-[var(--main-text-light)] dark:text-white">Total</dt>
+              <dd class="text-base font-bold text-[var(--main-text-light)] dark:text-white" id="checkout_total"></dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div id="whatsapp-payment" class="py-[16px]">
+            <button type="submit"
+              class="flex w-full items-center justify-center rounded-lg bg-[var(--whatsapp-color)] p-3 text-sm font-medium text-[var(--main-text-dark)] hover:bg-primary-800 focus:outline-none focus:ring-4 dark:bg-[var(--whatsapp-color)] dark:hover:bg-primary-700"
+              id="checkout_button_whatsapp">
+              <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="#ffffff">
+
+                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z"
+                    fill="#ffffff" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z"
+                    fill="#ffffff" />
+                </g>
+
+              </svg>
+              <span class="font-medium not-italic text-[16px]">Continuar a
+                WhatsApp</span>
+            </button>
+            <div class="flex flex-col justify-center mt-[8px] px-[16px] py-[0]">
+              <div class="[all:inherit] m-0 p-0 border-[none] bg-none rounded-[unset]">
+                <button id="copy_wpp_message" type="button"
+                  class="text-[12px] font-semibold leading-[15px] m-0 flex justify-center items-center text-[#737373] hover:text-[#1daa61] hover:underline">Tienes
+                  problemas generando el mensaje automático en WhatsApp? Has click para copiarlo.</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

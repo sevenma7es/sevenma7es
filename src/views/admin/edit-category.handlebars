@@ -1,0 +1,96 @@
+<a href="/admin/categorias"
+  class="w-fit text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] flex hover:underline mb-2">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
+    <path d="m12 19-7-7 7-7" />
+    <path d="M19 12H5" />
+  </svg>
+  Volver
+</a>
+
+<section>
+  <div class="w-full md:w-[50%]">
+    <h2 class="mb-4 text-xl font-bold text-[var(--main-text-light)] dark:text-white">{{categoryData.name}}</h2>
+    <form action="" id="category-form" reg_id="{{categoryData._id}}">
+      <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+        <div class="w-full hidden">
+          <label for="id"
+            class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">ID</label>
+          <input type="text" name="id" id="id" value="{{categoryData._id}}"
+            class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            placeholder="ID" />
+        </div>
+        <div class="w-full hidden">
+          <label for="parent_id" class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">ID
+            Categoía Padre</label>
+          <input type="text" name="parent_id" id="parent_id" value="{{categoryData.parent}}"
+            class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            placeholder="ID Categoía Padre" />
+        </div>
+        <div class="sm:col-span-2">
+          <label for="name" class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Nombre
+            de la categoría</label>
+          <input type="text" name="name" id="name" value="{{categoryData.name}}"
+            class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            placeholder="Nombre de la categoría" required="true" />
+        </div>
+        <div class="w-full">
+          <label for="slug"
+            class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Slug</label>
+          <input type="text" name="slug" id="slug" value="{{categoryData.slug}}"
+            class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            placeholder="Slug de la categoría" required="true" />
+        </div>
+        <div class="w-full">
+          <label for="new-parent-id"
+            class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">
+            Categoría padre
+          </label>
+          <select name="new-parent-id" id="new-parent-id"
+            class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            <option value="">Selecciona una categoría padre</option>
+            {{#each categories}}
+            <option value="{{_id}}" id="{{_id}}">
+              {{name}}
+            </option>
+            {{/each}}
+          </select>
+        </div>
+        <!-- New section for dynamic properties -->
+        <div class="sm:col-span-2" id="properties-container">
+          <h4 class="text-[var(--main-text-light)] dark:text-[var(--main-text-dark)]">Propiedades</h4>
+          {{#each properties}}
+          <div class="property-item grid gap-4 sm:grid-cols-2 sm:gap-6 mt-4">
+            <input type="text" name="property-name" value="{{name}}" placeholder="Nombre de la propiedad"
+              class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" />
+            <input type="text" name="property-values" value="{{join values ','}}" placeholder="Valores"
+              class="property-values bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" />
+          </div>
+          {{/each}}
+        </div>
+        <button type="button" id="add-property-button"
+          class="sm:col-span-2 bg-[var(--main-bg-dark)] hover:bg-[var(--main-dark-5)] text-[var(--main-text-dark)] p-2 mt-2 rounded-md">
+          Añadir Propiedad
+        </button>
+      </div>
+      <button id="edit-category-button" type="submit"
+        class="bg-[var(--main-bg-dark)] hover:bg-[var(--main-dark-5)] text-[var(--main-text-dark)] p-2 mt-2 rounded-md">
+        Guardar categoría
+      </button>
+      <div
+        class="hidden mt-2 items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+        role="alert" id="required_message">
+        <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+          <span class="font-medium">Cuidado!</span>
+          Tenes que completar todos los campos para poder guardar la categoría.
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

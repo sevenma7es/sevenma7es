@@ -1,0 +1,60 @@
+<h1 class="text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] text-2xl">Ingresos</h1>
+<a href="/admin/ordenes-compra/agregar-ordenes-compra"
+    class="flex w-fit mb-2 bg-[var(--main-bg-dark)] dark:bg-[var(--main-bg-light)] text-[var(--main-text-dark)] dark:text-[var(--main-text-light)] p-2 rounded-2xl cursor-pointer hover:underline"
+    id="add-new-invoice">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
+        <path d="M5 12h14" />
+        <path d="M12 5v14" />
+    </svg>
+    Agregar una orden de compra
+</a>
+
+<div class="flex flex-col">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 min-w-max">
+            <thead class="text-xs text-[var(--main-text-dark-2)] uppercase bg-[var(--main-bg-dark)]">
+                <tr>
+                    <th scope="col" class="px-2 py-3">Número de Orden</th>
+                    <th scope="col" class="px-2 py-3">Fecha</th>
+                    <th scope="col" class="px-2 py-3">Cliente</th>
+                    <th scope="col" class="px-2 py-3">Email</th>
+                    <th scope="col" class="px-2 py-3">Dirección</th>
+                    <th scope="col" class="px-2 py-3">Total</th>
+                    <th scope="col" class="px-2 py-3">Método de Pago</th>
+                    <th scope="col" class="px-2 py-3">ID de Transacción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each buyingOrders}}
+                <tr class="even:bg-[var(--main-light-1)] even:dark:bg-[var(--main-dark-7)] odd:bg-[var(--main-light-2)] odd:dark:bg-[var(--main-dark-3)] border-b dark:border-[var(--main-dark-10)] cursor-pointer"
+                    id="{{_id}}">
+                    <td scope="row"
+                        class="px-2 py-2 font-medium text-[var(--main-text-light)] whitespace-nowrap dark:text-white">
+                        {{orderNumber}}</td>
+                    <td class="px-2 py-2">{{formatDate issueDate}}</td>
+                    <td class="px-2 py-2">{{customer.name}}</td>
+                    <td class="px-2 py-2">{{customer.email}}</td>
+                    <td class="px-2 py-2">{{customer.address.street}}, {{customer.address.city}},
+                        {{customer.address.state}},
+                        {{customer.address.country}}</td>
+                    <td class="px-2 py-2">${{totalAmount}}</td>
+                    <td class="px-2 py-2">{{paymentMethod}}</td>
+                    <td class="px-2 py-2">{{transactionId}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div class="flex justify-center mt-4">
+    <ul class="flex space-x-2">
+        {{#each pages}}
+        <li>
+            <a href="/admin/ingresos?page={{this}}"
+                class="px-3 py-1 bg-[var(--main-bg-dark)] text-[var(--main-text-dark-2)] rounded-md hover:bg-[var(--main-dark-5)]">{{this}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>

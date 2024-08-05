@@ -1,0 +1,61 @@
+<div>
+  <h1 class="text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] font-semibold">Dashboard</h1>
+  <div class="flex flex-col">
+
+    <div id="invoices-stats-container">
+      <div class="min-h-[250px] grid grid-cols-1 md:grid-cols-2 gap-4 w-full mb-4">
+        <div class="dark:bg-[var(--main-dark-10)] rounded-md">
+          <canvas class="h-auto max-w-full rounded-lg" id="invoicesStatsChart"></canvas>
+        </div>
+        <div class="dark:bg-[var(--main-dark-10)] rounded-md">
+          <canvas class="h-auto max-w-full rounded-lg" id="amountStatsChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div id="invoices2-stats-container">
+      <div class="min-h-[250px] grid grid-cols-1 md:grid-cols-2 gap-4 w-full mb-4">
+        <div class="dark:bg-[var(--main-dark-10)] rounded-md">
+          <canvas class="h-auto max-w-full rounded-lg" id="typeStatsChart"></canvas>
+        </div>
+        <div class="dark:bg-[var(--main-dark-10)] rounded-md">
+          <canvas class="h-auto max-w-full rounded-lg" id=""></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div id="users-stats-container">
+    <div class="min-h-[250px] grid grid-cols-1 md:grid-cols-2 gap-4 w-full mb-4">
+      <div class="dark:bg-[var(--main-dark-10)] rounded-md">
+        <canvas class="h-auto max-w-full rounded-lg" id="userStatsChart"></canvas>
+      </div>
+
+      <div class="dark:bg-[var(--main-dark-10)] rounded-md">
+        <canvas class="h-auto max-w-full rounded-lg" id="productStatsChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+  <h1 class="text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] font-semibold">Productos con bajo stock
+  </h1>
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded-sm overflow-hidden">
+    <thead class="text-xs text-[var(--main-text-dark-2)] uppercase bg-[var(--main-bg-dark)]">
+      <tr>
+        <th scope="col" class="px-2 py-3">Nombre</th>
+        <th scope="col" class="px-2 py-3">Stock</th>
+        {{! <th scope="col" class="px-2 py-3">Precio</th> }}
+      </tr>
+    </thead>
+    <tbody id="tbody-low-stock-products">
+
+      <tr
+        class="even:bg-[var(--main-light-1)] even:dark:bg-[var(--main-dark-7)] odd:bg-[var(--main-light-2)] odd:dark:bg-[var(--main-dark-3)] border-b dark:border-[var(--main-dark-10)]"
+        id="{{_id}}">
+        <td colspan="2" id="no-low-stock-products" class="px-6 py-1">No hay productos con bajo stock.</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>

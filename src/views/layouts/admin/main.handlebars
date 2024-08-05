@@ -1,0 +1,109 @@
+<html lang="en" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {{enterprise.name}}
+      - Admin{{#if title}} | {{title}}{{/if}}
+    </title>
+    <meta name="description" content="{{description}}" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    {{! Css dinamico }}
+    {{#if css}}
+      <link rel="stylesheet" href="/css/admin/{{css}}" />
+    {{/if}}
+  </head>
+
+  <body>
+    {{#if isLoggedIn}}
+      <div class="bg-[var(--main-bg-light)] dark:bg-[var(--main-dark-2)]">
+        <button id="open-sidebar" data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+          <span class="sr-only">Open sidebar</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+            </path>
+          </svg>
+        </button>
+      </div>
+
+      <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+
+        <div class="flex flex-col h-full px-3 py-4 overflow-y-auto bg-[var(--main-light-2)] dark:bg-[var(--main-bg-dark)]" id="sidebar-container">
+          <div class="w-full p-1">
+            <span class="flex w-full space-y-2 font-bold px-2 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] text-xl">{{enterprise.name}} Admin Panel</span>
+            <button id="close-aside-button" class="text-red-500 float-right sm:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
+            </button>
+          </div>
+          <ul class="space-y-2 font-medium">
+            {{#each adminSidebarItems}}
+              <li>
+                <a href="{{url}}" class="flex items-center p-2 text-[var(--main-text-light)] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-[var(--main-dark-10)] group {{classes}}">
+                  {{{icon}}}
+                  <span class="ms-3 font-bold">{{title}}</span>
+                </a>
+              </li>
+            {{/each}}
+            <li>
+              <button id="toggle-dark-mode" type="button" class="p-2 flex items-center w-full h-9 text-[var(--main-text-light)] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-[var(--main-dark-10)] group hover:!text-[#1d3557] dark:hover:!text-[var(--main-text-dark)]">
+                <svg id="toggle-icon-moon" width="20" height="20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                  <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z">
+                  </path>
+                </svg>
+                <svg id="toggle-icon-sun" width="20" height="20" class="hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z">
+                  </path>
+                </svg>
+                <span class="sr-only">Toggle dark/light mode</span>
+                <span class="ms-3 font-bold">Modo <span class="font-bold" id="theme-span"></span></span>
+              </button>
+            </li>
+            <li>
+              <button id="logout" class="flex w-full items-center p-2 text-[var(--main-text-light)] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:!text-red-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                  <polyline points="16 17 21 12 16 7" />
+                  <line x1="21" x2="9" y1="12" y2="12" />
+                </svg>
+                <span class="ms-3 font-bold">Cerrar sesion</span>
+              </button>
+            </li>
+
+          </ul>
+        </div>
+      </aside>
+      <div class="p-4 sm:ml-64 bg-[var(--main-bg-light)] dark:bg-[var(--main-dark-2)] min-h-screen" id="body-container">
+        {{{body}}}
+      </div>
+      {{! CONTEXT MENU }}
+      <div id="contextMenu" class="hidden absolute bg-[var(--main-bg-light)] dark:bg-[var(--main-bg-light)] text-[var(--main-text-light)] dark:text-[var(--main-text-light)] rounded-md shadow-xl overflow-hidden min-w-[200px]" screen="{{screen}}">
+
+        {{#if contextMenu}}
+          <ul id="context-menu-ul" class="context-menu-ul flex flex-col rounded-md shadow-xl overflow-hidden p-2">
+            {{#each contextMenu}}
+              <li class="context-menu-item {{classes}}" action="{{action}}">
+                {{{icon}}}
+                {{title}}
+              </li>
+            {{/each}}
+          </ul>
+        {{else}}
+
+        {{/if}}
+      </div>
+    {{else}}
+      {{{body}}}
+    {{/if}}
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="/js/admin/main.js"></script>
+    <script type="module" src="/js/plugins.js"></script>
+    <script type="module" src="/js/functions.js"></script>
+  </body>
+
+</html>

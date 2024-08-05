@@ -1,0 +1,3 @@
+$("table").contextMenuPlugin({
+  menuSelector: "#contextMenu",
+});

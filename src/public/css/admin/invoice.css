@@ -1,0 +1,36 @@
+#invoice-main-container {
+  height: 335mm;
+  width: 210mm;
+  position: relative;
+}
+
+#invoice-header {
+  height: 5.7cm;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#invoice-second-header {
+  height: 3.7cm;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 0.2cm;
+}
+
+#invoice-items-section {
+  height: 19.1cm;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 0.2cm;
+}
+
+@media print {
+  #default-sidebar {
+    display: none !important;
+  }
+
+  #body-container {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+}

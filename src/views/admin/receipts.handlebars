@@ -1,0 +1,63 @@
+<h1 class="text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] text-2xl">Egresos</h1>
+<a href="/admin/egresos/agregar-egreso"
+  class="flex w-fit mb-2 bg-[var(--main-bg-dark)] dark:bg-[var(--main-bg-light)] text-[var(--main-text-dark)] dark:text-[var(--main-text-light)] p-2 rounded-2xl cursor-pointer hover:underline"
+  id="add-new-receipt">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
+    <path d="M5 12h14" />
+    <path d="M12 5v14" />
+  </svg>
+  Agregar un egreso
+</a>
+
+<div class="flex flex-col">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 min-w-max">
+      <thead class="text-xs text-[var(--main-text-dark-2)] uppercase bg-[var(--main-bg-dark)]">
+        <tr>
+          <th scope="col" class="px-2 py-3">Número</th>
+          <th scope="col" class="px-2 py-3">Fecha de Emisión</th>
+          <th scope="col" class="px-2 py-3">Nombre del Emisor</th>
+          <th scope="col" class="px-2 py-3">Dirección del Emisor</th>
+          <th scope="col" class="px-2 py-3">CUIT del Emisor</th>
+          <th scope="col" class="px-2 py-3">Responsabilidad IVA</th>
+          <th scope="col" class="px-2 py-3">Nombre del Receptor</th>
+          <th scope="col" class="px-2 py-3">Dirección del Receptor</th>
+          <th scope="col" class="px-2 py-3">CUIT del Receptor</th>
+          <th scope="col" class="px-2 py-3">Monto Total</th>
+          {{! <th scope="col" class="px-2 py-3">Acciones</th> }}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each receipts}}
+        <tr
+          class="even:bg-[var(--main-light-1)] even:dark:bg-[var(--main-dark-7)] odd:bg-[var(--main-light-2)] odd:dark:bg-[var(--main-dark-3)] border-b dark:border-[var(--main-dark-10)] cursor-pointer"
+          id="{{_id}}">
+          <td scope="row" class="px-2 py-2 font-medium text-[var(--main-text-light)] whitespace-nowrap dark:text-white">
+            {{number}}
+          </td>
+          <td class="px-2 py-2">{{formatDate issueDate}}</td>
+          <td class="px-2 py-2">{{supplier.name}}</td>
+          <td class="px-2 py-2">{{supplier.address}}</td>
+          <td class="px-2 py-2">{{supplier.cuit}}</td>
+          <td class="px-2 py-2">{{supplier.ivaResponsibility}}</td>
+          <td class="px-2 py-2">{{purchaser.name}}</td>
+          <td class="px-2 py-2">{{purchaser.address}}</td>
+          <td class="px-2 py-2">{{purchaser.cuit}}</td>
+          <td class="px-2 py-2">${{totalAmount}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="flex justify-center mt-4">
+  <ul class="flex space-x-2">
+    {{#each pages}}
+    <li>
+      <a href="/admin/egresos?page={{this}}"
+        class="px-3 py-1 bg-[var(--main-bg-dark)] text-[var(--main-text-dark-2)] rounded-md hover:bg-[var(--main-dark-5)]">{{this}}</a>
+    </li>
+    {{/each}}
+  </ul>
+</div>

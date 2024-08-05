@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  font-family: "Merriweather Sans", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+#client-logo {
+  color: #343a40 !important;
+}
+
+:root {
+  --main-bg-light: #ffffff;
+  --main-text-light: #121212;
+  --main-text-dark-2: #141414;
+  --main-light-accent: #eef2ff;
+  --main-light-1: #f0f0f0;
+  --main-light-2: #e0e0e0;
+  --main-light-3: #d0d0d0;
+  --main-light-4: #c0c0c0;
+  --main-light-5: #b0b0b0;
+  --main-light-6: #a0a0a0;
+  --main-light-7: #909090;
+  --main-light-8: #808080;
+  --main-light-10: #707070;
+
+  --main-bg-dark: #121212;
+  --main-text-dark: #ffffff;
+  --main-text-dark-2: #f3f4f6;
+  --main-dark-accent: #232323;
+  --main-dark-1: #121212;
+  --main-dark-2: #1d1d1d;
+  --main-dark-3: #212121;
+  --main-dark-4: #242424;
+  --main-dark-5: #2c2c2c;
+  --main-dark-6: #2d2d2d;
+  --main-dark-7: #323232;
+  --main-dark-8: #353535;
+  --main-dark-10: #373737;
+
+  --error-bg-color: #fef2f2;
+  --error-border-color: #fca5a5;
+  --error-text-color: #991b1b;
+  --error-placeholder-color: #cc5c5c;
+
+  --active-tr-color: #c7daff;
+  --active-text-color: #121212;
+
+  --whatsapp-color: #1daa61;
+}
+
+.input-tiene-error {
+  border-color: var(--error-border-color) !important;
+  outline-color: var(--error-border-color) !important;
+  background-color: var(--error-bg-color) !important;
+  color: black !important;
+}
+
+.input-tiene-error:focus {
+  border-color: var(--error-border-color) !important;
+  outline-color: var(--error-border-color) !important;
+  background-color: var(--error-bg-color) !important;
+  color: black !important;
+}
+
+.input-tiene-error::placeholder,
+.input-tiene-error > span,
+.input-tiene-error > input::placeholder {
+  color: var(--error-placeholder-color) !important;
+}
+
+.active {
+  background-color: var(--active-tr-color) !important;
+  color: var(--active-text-color) !important;
+}
+
+.active * {
+  color: var(--active-text-color) !important;
+}
+
+.context-menu-ul > .context-menu-item {
+  @apply cursor-pointer  transition-all ease-linear  p-2 w-full h-full text-[var(--main-text-light)] dark:text-[var(--main-text-light)] relative inline-flex items-center;
+}
+
+.context-menu-ul > .context-menu-item:not(:last-child) {
+  @apply border-b border-solid border-[var(--main-light-2)] dark:border-[var(--main-light-2)];
+}
+
+.context-menu-item > svg {
+  @apply mr-2;
+}

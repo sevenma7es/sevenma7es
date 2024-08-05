@@ -1,0 +1,72 @@
+<div class="bg-gray-100 flex justify-center items-center h-screen relative overflow-hidden">
+
+  {{! <div class="absolute top-0 right-0 text-[#343a40] text-center p-8">
+    <a href="/" class="hover:underline active:text-gray-600">Volver al inicio</a>
+  </div> }}
+
+  <!-- Left: Image -->
+  <div class="w-1/2 h-screen hidden lg:block">
+    <img
+      src="https://images.unsplash.com/photo-1605436247078-f0ef43ee8d5c?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Placeholder Image" class="object-cover w-full h-full" />
+  </div>
+  <!-- Right: Login Form -->
+  <div class="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
+    <h1 class="text-2xl font-semibold mb-4">Iniciar sesión</h1>
+    <form action="" method="POST" class="login-form" id="loginForm">
+      <!-- Email Input -->
+      <div class="mb-4">
+        <label for="email" class="block text-gray-600">Email</label>
+        <input type="email" id="email" name="email"
+          class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-[#343a40]"
+          autocomplete="off" placeholder="ejemplo@ejemplo.com" />
+      </div>
+      <!-- Password Input -->
+      <div class="mb-4">
+        <label for="password" class="block text-gray-600">Contraseña</label>
+        <input type="password" id="password" name="password"
+          class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-[#343a40]"
+          autocomplete="off" placeholder="••••••••••" />
+      </div>
+      <!-- Remember Me Checkbox -->
+      <div class="mb-4 flex items-center">
+        <input type="checkbox" id="remember" name="remember" class="text-[#343a40]" />
+        <label for="remember" class="text-gray-600 ml-2">Remember Me</label>
+      </div>
+      <!-- Forgot Password Link -->
+      <div class="mb-6 text-[#343a40]">
+        <a href="#" class="hover:underline">Olvidaste la contraseña?</a>
+      </div>
+      <!-- Login Button -->
+      <button type="submit" id="submit"
+        class="bg-[#343a40] hover:bg-[#495057] text-white font-semibold rounded-md py-2 px-4 w-full">Iniciar
+        sesión</button>
+    </form>
+    <div
+      class="opacity-0 flex mt-2 items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+      role="alert" id="warning_message">
+      <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor" viewBox="0 0 20 20">
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+      </svg>
+      <span class="sr-only">Info</span>
+      <div>
+        <span class="font-medium">Cuidado!</span>
+        Contraseña incorrecta, intente nuevamente.
+      </div>
+    </div>
+    <div class="top-0 right-0 text-[#343a40] text-center p-2">
+      <a href="/" class="hover:underline active:text-gray-600 flex justify-center items-center">
+        <span class="font-medium mr-2">Volver al inicio</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-arrow-left-from-line">
+          <path d="m9 6-6 6 6 6" />
+          <path d="M3 12h14" />
+          <path d="M21 19V5" />
+        </svg></a>
+    </div>
+  </div>
+</div>
+<script type="module" src="/js/admin/admin-login.js"></script>

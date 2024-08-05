@@ -1,0 +1,75 @@
+<div class="flex items-center mb-2">
+  <h1 class="text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] text-2xl mr-2">Usuarios</h1>
+  <a href="/admin/usuarios/agregar-usuario"
+    class="flex w-fit bg-[var(--main-bg-dark)] dark:bg-[var(--main-bg-light)] text-[var(--main-text-dark)] dark:text-[var(--main-text-light)] p-2 rounded-full cursor-pointer hover:underline"
+    id="add-new-user">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
+      <path d="M5 12h14" />
+      <path d="M12 5v14" />
+    </svg>
+  </a>
+</div>
+<div class="mb-4 flex">
+  <button
+    class="text-white bg-[var(--main-bg-dark)] dark:bg-[var(--main-bg-light)] text-[var(--main-text-dark)] dark:text-[var(--main-text-light)] focus:ring-4 focus:outline-none focus:ring-[var(--main-dark-10)] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[var(--main-light-10)] mr-2 !min-w-40 justify-between"
+    id="usersSearchDropdown">
+    <span id="searchButtonTitle">Nombre</span>
+    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+    </svg>
+  </button>
+  <div
+    class="flex bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 w-full dark:bg-[var(--main-dark-7)] dark:border-[var(--main-dark-7)] dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+    <span class="pl-2.5 py-2.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-search text-[#9ca3af]">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.3-4.3" />
+      </svg></span>
+    <input class="w-full bg-transparent border-none outline-none pr-2.5 py-2.5" type="text" name="search"
+      id="searchInput" placeholder="Escribi tu busqueda acá" />
+  </div>
+
+  <button id="searchButton"
+    class="bg-[var(--main-bg-dark)] dark:bg-[var(--main-bg-light)] text-[var(--main-text-dark)] dark:text-[var(--main-text-light)] focus:ring-4 focus:outline-none focus:ring-[var(--main-dark-10)] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[var(--main-light-10)] ml-2">Buscar</button>
+</div>
+<div class="flex flex-col">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" id="users_output_table">
+      <thead class="text-xs text-[var(--main-text-dark-2)] uppercase bg-[var(--main-bg-dark)]">
+        <tr>
+          <th scope="col" class="px-2 py-3 w-1/3">Nombre Completo</th>
+          <th scope="col" class="px-2 py-3 w-1/3">Email</th>
+          <th scope="col" class="px-2 py-3 w-1/3">Roles</th>
+        </tr>
+      </thead>
+      <tbody id="users_tbody">
+        {{#each admins}}
+        <tr
+          class="even:bg-[var(--main-light-1)] even:dark:bg-[var(--main-dark-7)] odd:bg-[var(--main-light-2)] odd:dark:bg-[var(--main-dark-3)] border-b dark:border-[var(--main-dark-10)] cursor-pointer"
+          id="{{_id}}">
+          <td scope="row" class="px-2 py-2 font-medium text-[var(--main-text-light)] whitespace-nowrap dark:text-white">
+            {{full_name}}
+          </td>
+          <td scope="row" class="px-2 py-2 font-medium text-[var(--main-text-light)] whitespace-nowrap dark:text-white">
+            {{email}}</td>
+          <td scope="row" class="px-2 py-2 font-medium text-[var(--main-text-light)] whitespace-nowrap dark:text-white">
+            {{{renderRoles roles}}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="flex justify-center mt-4">
+  <ul class="flex space-x-2">
+    {{#each pages}}
+    <li>
+      <a href="/admin/usuarios?page={{this}}"
+        class="px-3 py-1 bg-[var(--main-bg-dark)] text-[var(--main-text-dark-2)] rounded-md hover:bg-[var(--main-dark-5)]">{{this}}</a>
+    </li>
+    {{/each}}
+  </ul>
+</div>

@@ -1,0 +1,228 @@
+<a href="/admin/"
+    class="w-fit text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] flex hover:underline mb-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
+        <path d="m12 19-7-7 7-7" />
+        <path d="M19 12H5" />
+    </svg>
+    Volver
+</a>
+<section>
+    <div class="w-full md:w-[50%]">
+        <h2 class="mb-4 text-xl font-bold text-[var(--main-text-light)] dark:text-white">Actualizar Datos de Empresa
+        </h2>
+        <form action="" id="enterprise-form">
+            <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                <div class="sm:col-span-2 hidden">
+                    <label for="_id"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Id de la
+                        empresa</label>
+                    <input type="text" name="_id" id="_id"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Id de la empresa" value="{{enterpriseData._id}}" />
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="name"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Nombre
+                        Comercial</label>
+                    <input type="text" name="name" id="name"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Nombre comercial de la empresa" value="{{enterpriseData.name}}" />
+                </div>
+                <div class="w-full">
+                    <label for="legal-name"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Nombre
+                        Legal</label>
+                    <input type="text" name="legalName" id="legal-name"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Nombre legal de la empresa" value="{{enterpriseData.legalName}}" />
+                </div>
+                <div class="w-full">
+                    <label for="taxId"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">CUIT/CUIL</label>
+                    <input type="text" name="taxId" id="taxId"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="CUIT/CUIL de la empresa" value="{{enterpriseData.taxId}}" />
+                </div>
+                <div class="w-full">
+                    <label for="address"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Dirección</label>
+                    <input type="text" name="address" id="address"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Dirección de la empresa" value="{{enterpriseData.address}}" />
+                </div>
+                <div class="w-full">
+                    <label for="city"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Ciudad</label>
+                    <input type="text" name="city" id="city"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Ciudad de la empresa" value="{{enterpriseData.city}}" />
+                </div>
+                <div class="w-full">
+                    <label for="province"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Provincia</label>
+                    <input type="text" name="province" id="province"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Provincia de la empresa" value="{{enterpriseData.province}}" />
+                </div>
+                <div class="w-full">
+                    <label for="country"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">País</label>
+                    <input type="text" name="country" id="country"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="País de la empresa" value="{{enterpriseData.country}}" />
+                </div>
+                <div class="w-full">
+                    <label for="phone"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Teléfono</label>
+                    <input type="tel" name="phone" id="phone"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Teléfono de la empresa" value="{{enterpriseData.phone}}" />
+                </div>
+                <div class="w-full">
+                    <label for="email"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Correo
+                        Electrónico</label>
+                    <input type="email" name="email" id="email"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Correo electrónico de la empresa" value="{{enterpriseData.email}}" />
+                </div>
+                <div class="w-full">
+                    <label for="website"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Sitio
+                        Web</label>
+                    <input type="url" name="website" id="website"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="URL del sitio web de la empresa" value="{{enterpriseData.website}}" />
+                </div>
+                <div class="w-full">
+                    <label for="logo-url"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">URL del
+                        Logotipo</label>
+                    <input type="url" name="logoUrl" id="logo-url"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="URL del logotipo de la empresa" value="{{enterpriseData.logoUrl}}" />
+                </div>
+                <div class="w-full">
+                    <label for="founded-year"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Año
+                        de
+                        Fundación</label>
+                    <input type="number" name="foundedYear" id="founded-year"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-300 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Año de fundación de la empresa" value="{{enterpriseData.foundedYear}}" />
+                </div>
+                <div class="w-full">
+                    <label for="businessType"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Tipo
+                        de Negocio</label>
+                    <input type="text" name="businessType" id="businessType"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Tipo de negocio de la empresa" value="{{enterpriseData.businessType}}" />
+                </div>
+                <div class="w-full">
+                    <label for="industry"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Industria</label>
+                    <input type="text" name="industry" id="industry"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Industria a la que pertenece la empresa" value="{{enterpriseData.industry}}" />
+                </div>
+                <div class="w-full">
+                    <label for="employees"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Número
+                        de Empleados</label>
+                    <input type="number" name="employees" id="employees"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Número de empleados de la empresa" value="{{enterpriseData.employees}}" />
+                </div>
+                <div class="w-full">
+                    <label for="revenue"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Ingresos
+                        Anuales</label>
+                    <input type="number" name="revenue" id="revenue"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Ingresos anuales de la empresa" value="{{enterpriseData.revenue}}" />
+                </div>
+                <div class="w-full hidden">
+                    <label for="isVATPayer"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Contribuyente
+                        de
+                        IVA</label>
+                    <input type="checkbox" name="isVATPayer" id="isVATPayer"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        {{#if enterpriseData.isVATPayer}}checked{{/if}} />
+                </div>
+                <div class="w-full">
+                    <label for="vatCategory"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Categoría
+                        de
+                        IVA</label>
+                    <select name="vatCategory" id="vatCategory"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                        <option value="" disabled selected>Selecciona una categoría de IVA</option>
+                        <option value="Responsable Inscripto" {{#if (eq
+                            enterpriseData.vatCategory "Responsable Inscripto" )}}selected{{/if}}>Responsable Inscripto
+                        </option>
+                        <option value="Monotributo" {{#if (eq enterpriseData.vatCategory "Monotributo"
+                            )}}selected{{/if}}>Monotributo
+                        </option>
+                        <option value="Exento" {{#if (eq enterpriseData.vatCategory "Exento" )}}selected{{/if}}>Exento
+                        </option>
+                        <option value="No Responsable" {{#if (eq enterpriseData.vatCategory "No Responsable"
+                            )}}selected{{/if}}>No
+                            Responsable</option>
+                        <option value="Consumidor Final" {{#if (eq enterpriseData.vatCategory "Consumidor Final"
+                            )}}selected{{/if}}>
+                            Consumidor Final</option>
+                        <option value="La empresa no es contribuyente de IVA" {{#if (eq
+                            enterpriseData.vatCategory "La empresa no es contribuyente de IVA" )}}selected{{/if}}>
+                            La empresa no es contribuyente de IVA</option>
+                    </select>
+                </div>
+                <div class="w-full">
+                    <label for="instagram"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Link de Instagram</label>
+                    <input type="text" name="instagram" id="instagram"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Fecha de creación del registro" value="{{enterpriseData.instagram}}" />
+                </div>
+                <div class="w-full">
+                    <label for="createdAt"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Fecha de
+                        Creación</label>
+                    <input type="text" name="createdAt" id="createdAt"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Fecha de creación del registro" value="{{enterpriseData.createdAt}}" disabled />
+                </div>
+                <div class="w-full">
+                    <label for="updatedAt"
+                        class="block mb-2 text-sm font-medium text-[var(--main-text-light)] dark:text-white">Fecha de
+                        Actualización</label>
+                    <input type="text" name="updatedAt" id="updatedAt"
+                        class="bg-[var(--main-light-1)] border border-gray-300 text-[var(--main-text-light)] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[var(--main-dark-3)] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Fecha de última actualización del registro" value="{{enterpriseData.updatedAt}}"
+                        disabled />
+                </div>
+            </div>
+            <button id="update-enterprise-button" type="submit"
+                class="bg-[var(--main-bg-dark)] hover:bg-[var(--main-dark-5)] text-[var(--main-text-dark)] p-2 mt-2 rounded-md">
+                Actualizar Empresa
+            </button>
+            <div class="hidden mt-2 items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+                role="alert" id="required_message">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Info</span>
+                <div>
+                    <span class="font-medium">Cuidado!</span>
+                    Tenes que completar todos los campos para poder actualizar los datos de la empresa.
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{{!--
+<script type="module" src="/js/admin/enterprise.js"></script> --}}

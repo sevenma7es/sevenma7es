@@ -1,0 +1,74 @@
+<div
+  class="bg-gray-100 flex justify-center items-center h-full relative overflow-hidden"
+>
+  <div class="w-1/2 h-full hidden lg:block">
+    <img
+      src="https://images.unsplash.com/photo-1610041321063-bbaf5286de89?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Placeholder Image"
+      class="object-cover w-full h-full"
+    />
+  </div>
+  <!-- Right: Register Form -->
+  <div class="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
+    <h1 class="text-2xl font-semibold mb-4">Crea una nueva cuenta.</h1>
+    <form action="" method="POST" class="register-form" id="registerForm">
+      <!-- Full Name Input -->
+      <div class="mb-4">
+        <label for="full_name" class="block text-gray-600">Nombre Completo</label>
+        <input
+          type="text"
+          id="full_name"
+          name="full_name"
+          class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-[#343a40]"
+          autocomplete="off"
+          placeholder="Nombre Apellido"
+        />
+      </div>
+      <!-- Eamil Input -->
+      <div class="mb-4">
+        <label for="email" class="block text-gray-600">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-[#343a40]"
+          autocomplete="off"
+          placeholder="ejemplo@ejemplo.com"
+        />
+      </div>
+      <!-- Password Input -->
+      <div class="mb-4">
+        <label for="password" class="block text-gray-600">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-[#343a40]"
+          autocomplete="off"
+          placeholder="••••••••••"
+        />
+      </div>
+      <!-- Repeat Password Input -->
+      <div class="mb-4">
+        <label for="password" class="block text-gray-600">Repetir Contraseña</label>
+        <input
+          type="password"
+          id="password-repeated"
+          name="password-repeated"
+          class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-[#343a40]"
+          autocomplete="off"
+          placeholder="••••••••••"
+        />
+      </div>
+      <button
+        type="submit"
+        id="submit-register"
+        class="bg-[#343a40] hover:bg-[#495057] text-white font-semibold rounded-md py-2 px-4 w-full"
+      >Registrarse</button>
+    </form>
+    <div class="top-0 right-0 text-[#343a40] text-center p-8 flex flex-col">
+      <a href="/ingresar" class="hover:underline active:text-gray-600">¿Ya tenes
+        una cuenta? Inicia sesión acá.</a>
+    </div>
+  </div>
+</div>
