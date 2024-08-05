@@ -254,11 +254,9 @@ clientRouter.get("/productos/categoria/:slug", userMiddleware, async (req, res) 
 clientRouter.get("/registro", (req, res) => {
   const title = "Registro";
   const description = "Registrate en nuestra tienda para pasar a ser parte de esta gran familia.";
-  const customClasses = "overflow-hidden";
   res.render("client/register", {
     title,
     description,
-    customClasses,
     clientSidebarItems,
   });
 });

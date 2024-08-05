@@ -273,22 +273,26 @@ export function localCartHandler(productId, action) {
 export function checkUserLoggedIn() {
   let userId = localStorage.getItem("userId");
 
-  fetch("/api/client/sessions/current")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("No user logged in");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Usuario logueado:", data.user);
-      if (!userId) {
-        localStorage.setItem("userId", data.user._id);
-        console.log("userId almacenado en localStorage:", data.user._id);
-      }
-    })
-    .catch((error) => {
-      console.error("Error:", error.message);
-      localStorage.removeItem("userId");
-    });
+  if (userId != null) {
+    fetch("/api/client/sessions/current")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("No user logged in");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Usuario logueado:", data.user);
+        if (!userId) {
+          localStorage.setItem("userId", data.user._id);
+          console.log("userId almacenado en localStorage:", data.user._id);
+        }
+      })
+      .catch((error) => {
+        console.info("Info:", error.message);
+        localStorage.removeItem("userId");
+      });
+  } else {
+    localStorage.removeItem("userId");
+  }
 }

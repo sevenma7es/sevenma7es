@@ -1862,14 +1862,8 @@ video {
 .leading-none {
   line-height: 1;
 }
-.leading-normal {
-  line-height: 1.5;
-}
 .leading-tight {
   line-height: 1.25;
-}
-.tracking-\[-0\.209px\] {
-  letter-spacing: -0.209px;
 }
 .tracking-\[1px\] {
   letter-spacing: 1px;

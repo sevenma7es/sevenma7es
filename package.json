@@ -1,7 +1,7 @@
 {
   "name": "sevenmates",
-  "version": "1.0.15",
-  "description": "Everlong es el proyecto final del curso de backend de CoderHouse, Everlong es un ecommerce.",
+  "version": "1.0.16",
+  "description": "Este es el repositorio de el ecommerce de sevenmates.",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -26,9 +26,9 @@
   "author": "Matias Viaggio (@harto_dev)",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/mativiaggio/everlong/issues"
+    "url": "https://github.com/sevenma7es/sevenma7es/issues/"
   },
-  "homepage": "https://github.com/mativiaggio/everlong#readme",
+  "homepage": "https://github.com/sevenma7es/sevenma7es/",
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "nodemon": "^3.1.0",

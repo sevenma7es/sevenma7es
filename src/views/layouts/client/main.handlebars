@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,8 +22,8 @@
               <path d="M10 10.5V5a2 2 0 1 0-4 0v9" />
               <path d="m7 15-1.76-1.76a2 2 0 0 0-2.83 2.82l3.6 3.6C7.5 21.14 9.2 22 12 22h2a8 8 0 0 0 8-8V7a2 2 0 1 0-4 0v5" />
             </svg> }}
-            <img class="h-[32px] dark:hidden" src="/images/logo_light2.png" alt="" />
-            <img class="h-[32px] hidden dark:block" src="/images/logo_dark2.png" alt="" />
+            <img class="h-[32px] dark:hidden object-contain" src="/images/logo_light_webp.webp" alt="logo modo claro" />
+            <img class="h-[32px] hidden dark:block object-contain" src="/images/logo_dark_webp.webp" alt="logo modo oscuro" />
           </a>
         </div>
         <div class="flex lg:hidden">
@@ -51,7 +52,7 @@
           </button>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center">
-          <a href="/carrito" class="addToCart lg:ml-5 rounded-full flex items-center justify-center group transition-all duration-500" data-product-id="{{_id}}" type="button">
+          <a href="/carrito" class="addToCart lg:ml-5 rounded-full flex items-center justify-center group transition-all duration-500" aria-label="carrito" data-product-id="{{_id}}" type="button">
             <svg class="stroke-[var(--main-dark-1)] dark:stroke-[var(--main-light-1)] transition-all duration-500" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
               <path d="M12.6892 21.125C12.6892 22.0225 11.9409 22.75 11.0177 22.75C10.0946 22.75 9.34632 22.0225 9.34632 21.125M19.3749 21.125C19.3749 22.0225 18.6266 22.75 17.7035 22.75C16.7804 22.75 16.032 22.0225 16.032 21.125M4.88917 6.5L6.4566 14.88C6.77298 16.5715 6.93117 17.4173 7.53301 17.917C8.13484 18.4167 8.99525 18.4167 10.7161 18.4167H18.0056C19.7266 18.4167 20.587 18.4167 21.1889 17.9169C21.7907 17.4172 21.9489 16.5714 22.2652 14.8798L22.8728 11.6298C23.3172 9.25332 23.5394 8.06508 22.8896 7.28254C22.2398 6.5 21.031 6.5 18.6133 6.5H4.88917ZM4.88917 6.5L4.33203 3.25" stroke="" stroke-width="1.6" stroke-linecap="round" />
             </svg>
@@ -168,8 +169,8 @@
         <div class="mx-auto">
           <a href="/" class="flex justify-center text-2xl font-bold">
             {{!-- {{enterprise.name}} --}}
-            <img class="h-[80px] dark:hidden" src="/images/logo_light2.png" alt="" />
-            <img class="h-[80px] hidden dark:block" src="/images/logo_dark2.png" alt="" />
+            <img class="h-[80px] dark:hidden object-contain" src="/images/logo_light_webp.webp" alt="logo modo claro" />
+            <img class="h-[80px] hidden dark:block object-contain" src="/images/logo_dark_webp.webp" alt="logo modo oscuro" />
           </a>
           <ul class="text-lg flex items-center justify-center flex-col gap-7 md:flex-row md:gap-12 transition-all duration-500 py-16 mb-10 border-b border-gray-200">
             <li><a href="/" class="text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] hover:text-[var(--main-text-light)] hover:underline">Inicio</a>

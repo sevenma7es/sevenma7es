@@ -82,7 +82,7 @@ import { contextAction } from "./functions.js";
               console.error("Screen not found");
               return;
             }
-            let action = "edit"; // Assuming "edit" action is the default for double-click
+            let action = "edit";
             let url = contextAction(screen, action, id);
 
             if (!url) {
@@ -113,23 +113,34 @@ import { contextAction } from "./functions.js";
                 throw new Error("URL not found. \nCheck the contextAction function.");
               } else {
                 if (action === "delete") {
-                  fetch(`/api${url}`, {
-                    method: "DELETE",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                  })
-                    .then((res) => {
-                      switch (res.status) {
-                        case 500:
-                          alert("Error: " + res.status);
-                          break;
-                        case 200:
-                          window.location.reload();
-                          break;
-                      }
-                    })
-                    .catch((error) => console.error("Error:", error));
+                  Swal.fire({
+                    title: "Eliminar Producto",
+                    text: "Estas seguro de querer eliminar este producto? Esta acción es irreversible.",
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: "Eliminar",
+                    denyButtonText: `Cancelar`,
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      fetch(`/api${url}`, {
+                        method: "DELETE",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                      })
+                        .then((res) => {
+                          switch (res.status) {
+                            case 500:
+                              alert("Error: " + res.status);
+                              break;
+                            case 200:
+                              window.location.reload();
+                              break;
+                          }
+                        })
+                        .catch((error) => console.error("Error:", error));
+                    }
+                  });
                 } else {
                   window.location.replace(url);
                 }
