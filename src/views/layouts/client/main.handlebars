@@ -120,9 +120,11 @@
                 <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm lg:text-base font-medium leading-7 hover:bg-[var(--main-light-accent)] dark:hover:bg-[var(--main-dark-accent)]">Sobre Nosotros</a>
                 <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm lg:text-base font-medium leading-7 hover:bg-[var(--main-light-accent)] dark:hover:bg-[var(--main-dark-accent)]">Contactanos</a>
                 <a href="/carrito" class="-mx-3 block rounded-lg px-3 py-2 text-sm lg:text-base font-medium leading-7 hover:bg-[var(--main-light-accent)] dark:hover:bg-[var(--main-dark-accent)]">Carrito</a>
-                {{#isAdmin user.roles}}
-                  <a href="/admin" class="-mx-3 block rounded-lg px-3 py-2 text-sm lg:text-base font-medium leading-7 hover:bg-[var(--main-light-accent)] dark:hover:bg-[var(--main-dark-accent)]">Admin Panel</a>
-                {{/isAdmin}}
+                {{#if user}}
+                  {{#isAdmin user.roles}}
+                    <a href="/admin" class="-mx-3 block rounded-lg px-3 py-2 text-sm lg:text-base font-medium leading-7 hover:bg-[var(--main-light-accent)] dark:hover:bg-[var(--main-dark-accent)]">Admin Panel</a>
+                  {{/isAdmin}}
+                {{/if}}
               </div>
               <div class="py-6 flex items-center space-x-2">
                 {{#if user}}
