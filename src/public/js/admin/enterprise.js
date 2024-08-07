@@ -33,7 +33,6 @@ $("#update-enterprise-button").on("click", function (event) {
     method = "PUT";
   }
 
-  // Send AJAX request
   $.ajax({
     url: url,
     type: method,

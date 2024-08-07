@@ -204,7 +204,13 @@
 
             </a> }}
           </div>
-          <span class="text-lg text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] text-center block">©<a href="/">{{enterprise.name}}</a> 2024, Todos los derechos reservados.</span>
+          <span class="text-lg text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] text-center block">
+            {{#if settings.main_footer_copyright}}
+            {{settings.main_footer_copyright}}
+            {{else}}
+              ©<a href="/">{{enterprise.name}}</a> 2024, Todos los derechos reservados.
+            {{/if}}
+          </span>
         </div>
       </div>
     </footer>

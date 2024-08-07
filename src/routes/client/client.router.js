@@ -4,11 +4,13 @@ import ProductsController from "../../controllers/products.controller.js";
 import UserController from "../../controllers/user.controller.js";
 import CategoriesController from "../../controllers/categories.controller.js";
 import EnterpriseController from "../../controllers/enterprise.controller.js";
+import SettingsController from "../../controllers/settings.controller.js";
 
 const productsController = new ProductsController();
 const userController = new UserController();
 const categoriesController = new CategoriesController();
 const enterpriseController = new EnterpriseController();
+const settingsController = new SettingsController();
 
 // Constantes
 import { clientSidebarItems } from "../../utils/constants.js";
@@ -61,6 +63,15 @@ clientRouter.get("/", userMiddleware, async (req, res) => {
     } else {
       enterprise = null;
     }
+
+    const raw_settings = await settingsController.getSettingsData();
+    let settings;
+    if (raw_settings && raw_settings.length > 0) {
+      settings = raw_settings[0].toJSON();
+    } else {
+      settings = null;
+    }
+
     const products = await productsController.findByFeatured();
     console.log(JSON.stringify(enterprise));
     let user = null;
@@ -68,7 +79,6 @@ clientRouter.get("/", userMiddleware, async (req, res) => {
       user = await userController.findById(req.user._id);
     }
 
-    console.log(JSON.stringify(user));
     res.render("client/home", {
       user: user ? user.user : null,
       clientSidebarItems,
@@ -76,6 +86,7 @@ clientRouter.get("/", userMiddleware, async (req, res) => {
       description,
       products,
       enterprise,
+      settings,
     });
   } catch (err) {
     logger.error("Error al cargar la página de inicio:", err);

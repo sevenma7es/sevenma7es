@@ -7,6 +7,7 @@ import BuyingOrdersController from "../../controllers/buyingOrders.controller.js
 import InvoicesController from "../../controllers/invoices.controller.js";
 import ReceiptsController from "../../controllers/receipts.controller.js";
 import EnterpriseController from "../../controllers/enterprise.controller.js";
+import SettingsController from "../../controllers/settings.controller.js";
 
 // Constantes
 import { adminSidebarItems, user_context, categories_context, basic_print_edit_delete } from "../../utils/constants.js";
@@ -19,6 +20,7 @@ const buyingOrdersController = new BuyingOrdersController();
 const invoicesController = new InvoicesController();
 const receiptsController = new ReceiptsController();
 const enterpriseController = new EnterpriseController();
+const settingsController = new SettingsController();
 
 // Middleware for public access
 const publicAccess = (req, res, next) => {
@@ -387,6 +389,21 @@ adminRouter.get("/empresa", privateAccess, async (req, res) => {
     description,
     enterpriseData,
   });
+});
+
+adminRouter.get("/configuracion", privateAccess, async (req, res) => {
+  const title = "Configuración";
+  const description = "Gestiona las configuraciones del sitio web";
+
+  const data = await settingsController.getSettingsData();
+  let settingsData;
+  if (data && data.length > 0) {
+    settingsData = data[0].toJSON();
+  } else {
+    settingsData = null;
+  }
+
+  res.render("admin/settings", { isLoggedIn: true, adminSidebarItems, title, description, settingsData });
 });
 
 export default adminRouter;

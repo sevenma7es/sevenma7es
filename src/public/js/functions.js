@@ -92,6 +92,9 @@ export function loadScripts(level) {
     case "/admin/empresa":
       script.src = "/js/admin/enterprise.js";
       break;
+    case "/admin/configuracion":
+      script.src = "/js/admin/settings.js";
+      break;
     default:
       console.error("Unknown page:", page);
       return;

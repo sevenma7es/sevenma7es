@@ -27,6 +27,7 @@ import adminUserRouter from "../routes/api/admin/user.router.js";
 import adminEnterpriseRouter from "../routes/api/admin/enterprise.router.js";
 import adminInvoicesRouter from "../routes/api/admin/invoices.router.js";
 import adminCategoriesRouter from "../routes/api/admin/categories.router.js";
+import adminSettingsRouter from "../routes/api/admin/settings.router.js";
 
 // Client routes
 import clientRouter from "../routes/client/client.router.js";
@@ -87,20 +88,23 @@ app.set("views", viewsPath);
 
 app.use(setLayout);
 
-// Routes
+// Admin Routes
 app.use("/api/admin/sessions", adminSessionRouter);
 app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/admin/categories", adminCategoriesRouter);
 app.use("/api/admin/users", adminUserRouter);
 app.use("/api/admin/enterprise", adminEnterpriseRouter);
 app.use("/api/admin/invoices", adminInvoicesRouter);
+app.use("/api/admin/settings", adminSettingsRouter);
+app.use("/admin", adminRouter);
+
+// Client Routes
 app.use("/api/client/sessions", clientSessionRouter);
 app.use("/api/client/products", clientProductsRouter);
 app.use("/api/client/carts", clientCartRouter);
 app.use("/api/client/mailer", clientMailerRouter);
 app.use("/api/client/payments", clientPaymentsRouter);
 app.use("/api/client/enterprise", clientEnterpriseRouter);
-app.use("/admin", adminRouter);
 app.use("/", clientRouter);
 
 app.listen(PORT, () => {
