@@ -5,14 +5,32 @@
         <div class="w-full xl:col-span-5 lg:col-span-6 2xl:-mx-5 xl:-mx-0">
           <div class="flex items-center text-sm font-medium text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] justify-center lg:justify-start">
             <span class="bg-[var(--main-dark-1)] py-1 px-3 rounded-2xl text-xs font-medium text-[var(--main-light-1)] mr-3">#1</span>
-            En calidad
+            {{#if settings.home_kicker}}
+              {{settings.home_kicker}}
+            {{else}}
+              En calidad
+            {{/if}}
           </div>
           <h1 class="py-8 text-center text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] font-bold font-manrope text-5xl lg:text-left leading-[70px]">
-            Para las mejores charlas,
-            <span class="text-[var(--main-dark-5)] dark:text-[var(--main-light-5)]">unos buenos mates.</span>
+            {{#if settings.home_title}}
+              {{settings.home_title}}
+            {{else}}
+              Para las mejores charlas,
+            {{/if}}
+            <span class="text-[var(--main-dark-5)] dark:text-[var(--main-light-5)]">
+              {{#if settings.home_title2}}
+                {{settings.home_title2}}
+              {{else}}
+                unos buenos mates.
+              {{/if}}
+            </span>
           </h1>
           <p class="text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] text-lg text-center lg:text-left">
-            Vos también podes formar parte de esta hermosa familia.
+            {{#if settings.home_subtitle}}
+              {{settings.home_subtitle}}
+            {{else}}
+              Vos también podes formar parte de esta hermosa familia.
+            {{/if}}
           </p>
           <form action="" method="GET" class="flex flex-col items-center" id="productSearchForm">
             <label for="busqueda" class="block mb-2 text-sm font-medium text-gray-600 w-full sr-only">Busqueda</label>
@@ -41,7 +59,12 @@
           <img class="h-[80px] hidden dark:block object-contain" src="/images/logo_dark_webp.webp" alt="logo modo oscuro" />
         </div>
         <p class="mt-3 text-center font-normal text-xl leading-8 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)]">
-          Los precios más bajos, la mejor calidad</p>
+          {{#if settings.home_section1}}
+            {{settings.home_section1}}
+          {{else}}
+            Los precios más bajos, la mejor calidad
+          {{/if}}
+        </p>
       </div>
 
       <div class="grid grid-cols-2 min-[450px]:grid-cols-3 sm:grid-cols-3 gap-y-6 xl:gap-14 w-full max-lg:max-w-xl">
@@ -92,7 +115,12 @@
   <section class="pb-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="font-manrope font-bold text-3xl min-[400px]:text-4xl text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] mb-8 max-lg:text-center">
-        Productos Destacados</h2>
+        {{#if settings.home_section2}}
+          {{settings.home_section2}}
+        {{else}}
+          Productos Destacados
+        {{/if}}
+      </h2>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
         {{#each products}}
@@ -120,5 +148,4 @@
       </div>
     </div>
   </section>
-
 </div>

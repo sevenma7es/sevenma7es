@@ -1,7 +1,7 @@
 import Enterprise from "../models/enterprise.js";
 import { logger } from "../utils/logger.js";
 
-export default class ProductsDAO {
+export default class EnterpriseDAO {
   async getEnterpriseData(limit, page) {
     try {
       const enterprise = await Enterprise.find();
@@ -24,11 +24,7 @@ export default class ProductsDAO {
 
   async updateEnterprise(id, enterpriseData) {
     try {
-      const updatedEnterprise = await Enterprise.findByIdAndUpdate(
-        id,
-        enterpriseData,
-        { new: true }
-      );
+      const updatedEnterprise = await Enterprise.findByIdAndUpdate(id, enterpriseData, { new: true });
 
       return updatedEnterprise;
     } catch (error) {
