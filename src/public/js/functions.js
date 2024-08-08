@@ -47,7 +47,7 @@ export function loadScripts(level) {
     case "/carrito":
       script.src = "/js/client/cart.js";
       break;
-    case "/checkout":
+    case "/finalizar-compra":
       script.src = "/js/client/checkout.js";
       break;
     case "/ingresar":
