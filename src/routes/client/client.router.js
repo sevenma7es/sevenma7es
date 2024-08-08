@@ -155,7 +155,13 @@ clientRouter.get("/producto/:slug", async (req, res) => {
       return res.status(404).send("Producto no encontrado");
     }
 
+    let user = null;
+    if (req.user) {
+      user = await userController.findById(req.user._id);
+    }
+
     res.render("client/view-product", {
+      user: user ? user.user : null,
       title: product.title,
       description: product.description,
       product,
@@ -359,8 +365,8 @@ clientRouter.get("/usuario/verificar-email/:uid", async (req, res) => {
   }
 });
 
-clientRouter.get("/checkout", async (req, res) => {
-  const title = "Checkout";
+clientRouter.get("/finalizar-compra", async (req, res) => {
+  const title = "Finalizar Compra";
   const description = "Finaliza tu compra de manera segura..";
   let user;
   if (req.user) {

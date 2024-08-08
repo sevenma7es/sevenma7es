@@ -1,4 +1,6 @@
-<section class="pt-0 lg:px-8 h-fit">
+<div id="carousel-container"></div>
+
+{{!-- <section class="pt-0 lg:px-8 h-fit">
   <div class="rounded-2xl bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] py-10 overflow-hidden m-5 lg:m-0 2xl:py-16 xl:py-8 lg:rounded-tl-2xl lg:rounded-bl-2xl">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 gap-14 items-center lg:grid-cols-12 lg:gap32">
@@ -48,17 +50,17 @@
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 
-<section class="py-24 relative">
+<section class="py-12 md:py-24 relative">
   <div class="w-full max-w-7xl mx-auto px-4 md:px-8">
-    <div class="flex flex-col lg:flex-row gap-11 items-center p-11 border border-[var(--main-light-accent)] dark:border-[var(--main-dark-accent)] bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] rounded-xl">
+    <div class="flex flex-col lg:flex-row gap-2 md:gap-11 items-center p-5 md:p-11 border border-[var(--main-light-accent)] dark:border-[var(--main-dark-accent)] bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] rounded-xl">
       <div class="box max-w-md w-full">
         <div class="flex items-center justify-center gap-[5px]">
-          <img class="h-[80px] dark:hidden object-contain" src="/images/logo_light_webp.webp" alt="logo modo claro" />
-          <img class="h-[80px] hidden dark:block object-contain" src="/images/logo_dark_webp.webp" alt="logo modo oscuro" />
+          <img class="h-[30px] md:h-[80px] dark:hidden object-contain" src="/images/logo_light_webp.webp" alt="logo modo claro" />
+          <img class="h-[30px] md:h-[80px] hidden dark:block object-contain" src="/images/logo_dark_webp.webp" alt="logo modo oscuro" />
         </div>
-        <p class="mt-3 text-center font-normal text-xl leading-8 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)]">
+        <p class="mt-3 text-center font-normal text-base md:text-xl leading-8 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)]">
           {{#if settings.home_section1}}
             {{settings.home_section1}}
           {{else}}
@@ -67,7 +69,7 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-2 min-[450px]:grid-cols-3 sm:grid-cols-3 gap-y-6 xl:gap-14 w-full max-lg:max-w-xl">
+      <div class="grid grid-cols-3 min-[450px]:grid-cols-3 sm:grid-cols-3 gap-y-6 xl:gap-14 w-full max-lg:max-w-xl">
         <div class="box flex flex-col items-center">
           <button aria-label="Envíos a todo el país" class="p-5 rounded-full shadow-sm shadow-transparent bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] flex items-center justify-center transition-all duration-500 hover:bg-indigo-100 hover:shadow-indigo-200 focus-within:bg-indigo-100 focus-within:outline-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-baggage-claim">
@@ -78,7 +80,7 @@
               <circle cx="9" cy="20" r="2" />
             </svg>
           </button>
-          <p class="mt-2 font-medium text-sm lg:text-md leading-6 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] w-[81px] text-center">
+          <p class="mt-2 font-medium text-xs md:text-base lg:text-md leading-6 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] w-[81px] md:w-full text-center">
             Envíos a todo el país
           </p>
         </div>
@@ -90,11 +92,11 @@
               <path d="m9 12 2 2 4-4" />
             </svg>
           </button>
-          <p class="mt-2 font-medium text-sm lg:text-md leading-6 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] w-[81px] text-center">
+          <p class="mt-2 font-medium text-xs md:text-base lg:text-md leading-6 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] w-[81px] md:w-full text-center">
             Calidad Asegurada
           </p>
         </div>
-        <div class="box flex flex-col items-center max-[450px]:col-span-2">
+        <div class="box flex flex-col items-center">
           <button aria-label="Los Mejores Descuentos" class="p-5 rounded-full shadow-sm shadow-transparent bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] flex items-center justify-center transition-all duration-500 hover:bg-indigo-100 hover:shadow-indigo-200 focus-within:bg-indigo-100 focus-within:outline-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-percent">
               <line x1="19" x2="5" y1="5" y2="19" />
@@ -102,7 +104,7 @@
               <circle cx="17.5" cy="17.5" r="2.5" />
             </svg>
           </button>
-          <p class="mt-2 font-medium text-sm lg:text-md leading-6 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] w-[81px] text-center">
+          <p class="mt-2 font-medium text-xs md:text-base lg:text-md leading-6 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] w-[81px] md:w-full text-center">
             Los Mejores Descuentos
           </p>
         </div>
@@ -124,11 +126,17 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
         {{#each products}}
-          <div class="max-w-[384px] mx-auto" id="{{_id}}">
-            <div class="w-full max-w-sm aspect-square bg-white rounded-xl overflow-hidden">
-              <a href="/producto/{{slug}}"><img src="{{index images 0}}" alt="cream image" class="w-full h-full object-contain border" /></a>
+          <div class="max-w-[384px] mx-auto rounded-xl overflow-hidden" id="{{_id}}">
+            <div class="w-full max-w-sm aspect-square bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] overflow-hidden p-2">
+              <a href="/producto/{{slug}}">
+              <div class="overflow-hidden rounded-xl w-full h-full">
+              <img src="{{index images 0}}" alt="cream image" class="object-contain" />
+
+              </div>
+              
+              </a>
             </div>
-            <div class="mt-5 flex items-start justify-between">
+            <div class="p-2 flex items-start justify-between bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)]">
               <div class="">
                 <p class="font-medium text-xl leading-8 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] mb-2">
                   <a class="hover:underline" href="/producto/{{slug}}">{{title}}</a>
