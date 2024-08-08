@@ -43,8 +43,8 @@ export function cartTotal(cart) {
         <p class="font-semibold text-xl leading-8 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)]">${formatCurrency(total)}</p>
       </div>
     </div>
-    <a href="/checkout">
-        <button class="w-full text-center bg-[var(--main-dark-1)] rounded-xl py-3 px-6 font-semibold text-lg text-white transition-all duration-500 hover:bg-[var(--main-dark-5)] mt-6">Checkout</button>
+    <a href="/finalizar-compra">
+        <button class="w-full text-center bg-[var(--main-dark-1)] rounded-xl py-3 px-6 font-semibold text-lg text-white transition-all duration-500 hover:bg-[var(--main-dark-5)] mt-6">Finalizar Compra</button>
     </a>
   `;
 }
