@@ -3395,10 +3395,6 @@ video {
     height: 80vh;
   }
 
-  .md\:h-screen {
-    height: 100vh;
-  }
-
   .md\:w-\[50\%\] {
     width: 50%;
   }
