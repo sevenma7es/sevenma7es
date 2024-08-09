@@ -1,6 +1,6 @@
 {
   "name": "sevenmates",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "Este es el repositorio de el ecommerce de sevenmates.",
   "main": "server.js",
   "type": "module",

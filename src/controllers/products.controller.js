@@ -309,4 +309,30 @@ export default class ProductsController {
       res.status(500).json({ status: "error", message: "Internal server error" });
     }
   }
+
+  async deleteImage(req, productId, imagePath) {
+    try {
+      console.log("imagePath", imagePath);
+      const publicId = imagePath.split("/").pop().split(".")[0];
+      console.log("publicId", publicId);
+      // Eliminar la imagen de Cloudinary
+      const cloudinaryResponse = await cloudinary.uploader.destroy(`product_images/${publicId}`);
+      
+      if (cloudinaryResponse.result !== "ok") {
+        throw new Error("Error al eliminar la imagen de Cloudinary");
+      }
+
+      // Eliminar la referencia de la imagen en MongoDB
+      const result = await productsDAO.removeImageFromProduct(productId, imagePath);
+
+      if (result.status === "error") {
+        return { status: 500, message: "Error al eliminar la imagen del producto" };
+      }
+
+      return { status: 200, message: "Imagen eliminada correctamente" };
+    } catch (error) {
+      logger.error("[Controller] Error deleting image:", error);
+      return { status: 500, message: "Error deleting image" };
+    }
+  }
 }

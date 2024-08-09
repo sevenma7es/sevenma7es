@@ -1,4 +1,4 @@
-<section class="pb-24 relative">
+<section class="pb-24 relative min-h-[80vh]">
   <div class="w-full mx-auto p-4 md:px-8">
     <div class="flex flex-row lg:flex-row lg:items-center max-lg:gap-4 w-full">
       <div class="relative w-full md:max-w-sm">
@@ -20,49 +20,49 @@
             stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
-      <div class="relative w-full">
-        <form action="" method="GET" class="flex flex-row items-center ml-2" id="productSearchForm">
-            <label for="busqueda" class="block mb-2 text-sm font-medium text-gray-600 w-full sr-only">Busqueda</label>
-            <div class="relative w-full md:max-w-sm">
-              <input type="text" name="busqueda" placeholder="Escriba su busqueda aquí"
-                class="text-base rounded-full text-[var(--main-text-light)] flex-1 py-3 px-4 shadow-[0px 15px 30px -4px rgba(16, 24, 40, 0.03)] md:shadow-none bg-white shadow-none placeholder:text-gray-400 focus:outline-none w-full border focus:border-[var(--main-dark-1)]"
-                id="productsSearchInput" />
-            </div>
-            <button
-              class="w-fit !h-full ml-2 py-3 px-4 flex items-center justify-center gap-2 rounded-full bg-[var(--main-dark-1)] text-[var(--main-text-dark)] font-semibold text-xs shadow-sm shadow-transparent transition-all duration-500 hover:bg-[var(--main-dark-3)] hover:shadow-[var(--main-light-accent)]"
-              type="submit" id="buttonSearchForm">
+      <div class="relative w-full hidden lg:flex justify-center">
+        <form action="" method="GET" class="flex flex-row justify-center items-center w-full" id="productSearchForm">
+          <label for="busqueda" class="block mb-2 text-sm font-medium text-gray-600 w-full sr-only">Busqueda</label>
+          <div class="relative w-full md:max-w-sm">
+            <input type="text" name="busqueda" placeholder="Escriba su busqueda aquí"
+              class="text-base rounded-full text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] flex-1 py-3 px-4 shadow-[0px 15px 30px -4px rgba(16, 24, 40, 0.03)] md:shadow-none bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] shadow-none placeholder:text-[var(--main-dark-5)] dark:placeholder:text-[var(--main-light-5)] focus:outline-none focus:outline focus:outline-[var(--main-dark-1)] dark:focus:outline-[var(--main-light-1)] w-full"
+              id="productsSearchInput" />
+          </div>
+          <div
+            class="!max-w-[100px] ml-2 text-base rounded-full text-[var(--main-text-dark)] dark:text-[var(--main-text-light)] flex-1 py-3 px-4 shadow-[0px 15px 30px -4px rgba(16, 24, 40, 0.03)] md:shadow-none bg-[var(--main-dark-accent)] dark:bg-[var(--main-light-accent)] shadow-none placeholder:text-[var(--main-dark-5)] dark:placeholder:text-[var(--main-light-5)] focus:outline-none w-full focus:outline focus:outline-[var(--main-dark-1)] dark:focus:outline-[var(--main-light-1)]">
+            <button class="flex justify-center items-center" type="submit" id="buttonSearchForm">
               <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M14.4987 13.9997L13.1654 12.6663M13.832 7.33301C13.832 10.6467 11.1457 13.333 7.83203 13.333C4.51832 13.333 1.83203 10.6467 1.83203 7.33301C1.83203 4.0193 4.51832 1.33301 7.83203 1.33301C11.1457 1.33301 13.832 4.0193 13.832 7.33301Z"
                   stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-          </form>
+              </svg>Buscar</button>
+          </div>
+        </form>
       </div>
-      <div class="relative w-full">
-        <div class="relative mt-2">
-              <button type="button"
-                class="h-12 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] text-base font-normal leading-7 rounded-full block w-full py-2.5 px-4 appearance-none relative focus:outline-none bg-[var(--main-light-accent)] dark:bg-[var(--main-bg-dark)] transition-all duration-500 focus-within:bg-gray-50 shadow-sm shadow-transparent hover:bg-[var(--main-light-2)] hover:dark:bg-[var(--main-dark-5)] hover:shadow-[var(--main-light-accent)]"
-                aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label"
-                category-selected-slug="{{categoryBySlug.slug}}" id="categories-select-button">
-                <span class="flex items-center">
-                  <span class="block truncate">{{categorySelectTitle}}</span>
-                </span>
-                <span class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
-                  <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                      d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
-                      clip-rule="evenodd" />
-                  </svg>
-                </span>
-              </button>
-              <ul
-                class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-                tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3"
-                id="categories-select-container">
-                {{{productsCategoriesComponent}}}
-              </ul>
-            </div>
+      <div class="relative w-full md:max-w-sm hidden lg:block">
+        <div class="relative">
+          <button type="button"
+            class="h-12 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] text-base font-normal leading-7 rounded-full block w-full py-2.5 px-4 appearance-none relative focus:outline-none bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] transition-all duration-500 focus-within:bg-gray-50 shadow-sm shadow-transparent hover:bg-[var(--main-light-2)] hover:dark:bg-[var(--main-dark-5)] hover:shadow-[var(--main-light-accent)]"
+            aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label"
+            category-selected-slug="{{categoryBySlug.slug}}" id="categories-select-button">
+            <span class="flex items-center">
+              <span class="block truncate">{{categorySelectTitle}}</span>
+            </span>
+            <span class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+              <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
+                  clip-rule="evenodd" />
+              </svg>
+            </span>
+          </button>
+          <ul
+            class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3"
+            id="categories-select-container">
+            {{{productsCategoriesComponent}}}
+          </ul>
+        </div>
       </div>
     </div>
     <svg class="my-7 w-full" xmlns="http://www.w3.org/2000/svg" width="1216" height="2" viewBox="0 0 1216 2"
@@ -80,11 +80,11 @@
             <div class="relative w-full mb-8">
               <input type="text" name="busqueda" placeholder="Escriba su busqueda aquí"
                 class="text-base rounded-full text-[var(--main-text-light)] flex-1 py-4 px-6 shadow-[0px 15px 30px -4px rgba(16, 24, 40, 0.03)] md:shadow-none bg-white shadow-none placeholder:text-gray-400 focus:outline-none w-full border focus:border-[var(--main-dark-1)]"
-                id="productsSearchInput" />
+                id="productsSearchInput2" />
             </div>
             <button
               class="w-full py-2.5 flex items-center justify-center gap-2 rounded-full bg-[var(--main-dark-1)] text-[var(--main-text-dark)] font-semibold text-xs shadow-sm shadow-transparent transition-all duration-500 hover:bg-[var(--main-dark-3)] hover:shadow-[var(--main-light-accent)]"
-              type="submit" id="buttonSearchForm">
+              type="submit" id="buttonSearchForm2">
               <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M14.4987 13.9997L13.1654 12.6663M13.832 7.33301C13.832 10.6467 11.1457 13.333 7.83203 13.333C4.51832 13.333 1.83203 10.6467 1.83203 7.33301C1.83203 4.0193 4.51832 1.33301 7.83203 1.33301C11.1457 1.33301 13.832 4.0193 13.832 7.33301Z"
@@ -114,7 +114,7 @@
               <button type="button"
                 class="h-12 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] text-base font-normal leading-7 rounded-full block w-full py-2.5 px-4 appearance-none relative focus:outline-none bg-[var(--main-bg-light)] dark:bg-[var(--main-bg-dark)] transition-all duration-500 focus-within:bg-gray-50 shadow-sm shadow-transparent hover:bg-[var(--main-light-2)] hover:dark:bg-[var(--main-dark-5)] hover:shadow-[var(--main-light-accent)]"
                 aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label"
-                category-selected-slug="{{categoryBySlug.slug}}" id="categories-select-button">
+                category-selected-slug="{{categoryBySlug.slug}}" id="categories-select-button2">
                 <span class="flex items-center">
                   <span class="block truncate">{{categorySelectTitle}}</span>
                 </span>
@@ -129,7 +129,7 @@
               <ul
                 class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                 tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3"
-                id="categories-select-container">
+                id="categories-select-container2">
                 {{{productsCategoriesComponent}}}
               </ul>
             </div>
@@ -178,7 +178,7 @@
       <section class="pb-24">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
+            {{#if products}}
             {{#each products}}
             <div class="max-w-[384px] mx-auto rounded-xl overflow-hidden" id="{{_id}}">
               <div
@@ -214,6 +214,17 @@
               </div>
             </div>
             {{/each}}
+            {{else}}
+            <h1 class="text-xl">No hay resultados para tu busqueda. <span><a class="flex items-center justify-normal hover:underline"
+                  href="/productos">Volver<svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-arrow-left-from-line">
+                    <path d="m9 6-6 6 6 6" />
+                    <path d="M3 12h14" />
+                    <path d="M21 19V5" />
+                  </svg></a></span></h1>
+            <img src="/images/svg/404-error-animate.svg" alt="Sin resultado">
+            {{/if}}
 
           </div>
         </div>

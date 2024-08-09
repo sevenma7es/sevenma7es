@@ -89,16 +89,16 @@ adminProductsRouter.get("/search", privateAccess, async (req, res) => {
   }
 });
 
-adminProductsRouter.delete("/image/delete", (req, res) => {
-  const { imagePath } = req.body;
-  const fullPath = path.join(__dirname, "../../../public", imagePath);
-
-  fs.unlink(fullPath, (err) => {
-    if (err) {
-      return res.status(500).json({ message: "Error eliminando imagen", error: err });
-    }
-    res.status(200).json({ message: "Imagen eliminada con éxito" });
-  });
+adminProductsRouter.delete("/image/delete", async function (req, res) {
+  try {
+    const { productId, imagePath } = req.body;
+    console.log("imagePath", imagePath);
+    const response = await productController.deleteImage(req, productId, imagePath);
+    res.status(response.status).json(response);
+  } catch (error) {
+    logger.error("Error deleting image:", error);
+    res.status(500).json({ status: "error", message: "Error deleting image" });
+  }
 });
 
 export default adminProductsRouter;
