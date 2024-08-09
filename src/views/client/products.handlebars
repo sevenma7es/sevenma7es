@@ -215,10 +215,11 @@
             </div>
             {{/each}}
             {{else}}
-            <h1 class="text-xl">No hay resultados para tu busqueda. <span><a class="flex items-center justify-normal hover:underline"
-                  href="/productos">Volver<svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" class="lucide lucide-arrow-left-from-line">
+            <h1 class="text-xl">No hay resultados para tu busqueda. <span><a
+                  class="flex items-center justify-normal hover:underline" href="/productos">Volver<svg class="ml-2"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-arrow-left-from-line">
                     <path d="m9 6-6 6 6 6" />
                     <path d="M3 12h14" />
                     <path d="M21 19V5" />
@@ -227,6 +228,23 @@
             {{/if}}
 
           </div>
+        </div>
+        <div class="w-full flex justify-center text-center mt-10">
+          {{#if hasPrevPage}}
+          <a href="{{prevLink}}" class="flex w-fit mr-5 hover:underline"><svg xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
+              <path d="m15 18-6-6 6-6" />
+            </svg>Anterior</a>
+          {{/if}}
+
+          {{#if hasNextPage}}
+          <a href="{{nextLink}}" class="flex w-fit hover:underline">Siguiente <svg xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right">
+              <path d="m9 18 6-6-6-6" />
+            </svg></a>
+          {{/if}}
         </div>
       </section>
     </div>
