@@ -212,6 +212,8 @@ clientRouter.get("/productos/buscar/:keywords", userMiddleware, async (req, res)
     if (req.user) {
       user = await userController.findById(req.user._id);
     }
+
+    console.log(JSON.stringify(products));
     res.render("client/products", {
       user: user ? user.user : null,
       clientSidebarItems,

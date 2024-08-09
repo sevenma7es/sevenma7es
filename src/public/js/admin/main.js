@@ -27,9 +27,9 @@ $("#close-aside-button").on("click", () => {
 });
 
 if (localStorage.getItem("theme") === "dark") {
-  $("#theme-span").text("oscuro");
-} else {
   $("#theme-span").text("claro");
+} else {
+  $("#theme-span").text("oscuro");
 }
 
 $("#toggle-dark-mode").on("click", () => {
@@ -40,9 +40,9 @@ $("#toggle-dark-mode").on("click", () => {
   localStorage.setItem("theme", newMode); // Toggle icons
 
   if (newMode === "dark") {
-    $("#theme-span").text("oscuro");
-  } else {
     $("#theme-span").text("claro");
+  } else {
+    $("#theme-span").text("oscuro");
   }
 
   $("#toggle-icon-moon").toggleClass("hidden");

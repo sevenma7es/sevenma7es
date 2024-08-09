@@ -16,15 +16,18 @@ document.getElementById("Offer").addEventListener("change", function () {
   window.location.search = urlParams.toString();
 });
 
-$("#categories-select-button").on("click", function () {
+$("#categories-select-button, #categories-select-button2").on("click", function () {
   $("#categories-select-container").toggleClass("hidden");
+  $("#categories-select-container2").toggleClass("hidden");
 });
 
 $(document).on("click", function () {
   $("#categories-select-container").addClass("hidden");
+  $("#categories-select-container2").addClass("hidden");
 });
 
 let category_selected_slug = $("#categories-select-button").attr("category-selected-slug");
+let category_selected_slug2 = $("#categories-select-button2").attr("category-selected-slug");
 
 if (category_selected_slug) {
   $("#categories-select-container").find(`li[category-slug=${category_selected_slug}]`).append(`
@@ -38,6 +41,22 @@ if (category_selected_slug) {
   `);
 }
 
+if (category_selected_slug2) {
+  $("#categories-select-container2").find(`li[category-slug=${category_selected_slug}]`).append(`
+    <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-[var(--main-dark-1)]">
+      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd"
+          d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+          clip-rule="evenodd" />
+      </svg>
+    </span>
+  `);
+}
+
+$('#productsSearchInput, #productsSearchInput2').on('input', function() {
+  $(this).val($(this).val().replace(/[^a-zA-Z0-9]/g, ''));
+});
+
 $("#buttonSearchForm").on("click", function (event) {
   event.preventDefault();
   const keywords = $("#productsSearchInput").val().trim();
@@ -47,6 +66,17 @@ $("#buttonSearchForm").on("click", function (event) {
     window.location.href = `/productos/buscar/${encodedKeywords}`;
   }
 });
+
+$("#buttonSearchForm2").on("click", function (event) {
+  event.preventDefault();
+  const keywords = $("#productsSearchInput2").val().trim();
+
+  if (keywords) {
+    const encodedKeywords = encodeURIComponent(keywords);
+    window.location.href = `/productos/buscar/${encodedKeywords}`;
+  }
+});
+
 
 $("button").click(function (e) {
   e.preventDefault();

@@ -207,4 +207,25 @@ export default class ProductsDAO {
       throw error;
     }
   }
+
+  async removeImageFromProduct(productId, imagePath) {
+    try {
+      const product = await Product.findByIdAndUpdate(
+        productId,
+        { $pull: { images: imagePath } },
+        { new: true }
+      );
+
+      if (!product) {
+        logger.error("Producto no encontrado para la eliminación de imagen");
+        return { status: "error", message: "Producto no encontrado" };
+      }
+
+      logger.info("Imagen eliminada de MongoDB");
+      return { status: "success", message: "Imagen eliminada de MongoDB", product };
+    } catch (error) {
+      logger.error("[DAO] Error eliminando la imagen del producto:", error);
+      return { status: "error", message: "Error eliminando la imagen del producto" };
+    }
+  }
 }

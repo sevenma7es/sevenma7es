@@ -41,6 +41,7 @@ function displayImages(files) {
 
 $(".delete-image-button").on("click", async function (event) {
   const imagePath = $(this).data("imagePath");
+  const productId = $("#product-form").attr("reg_id");
 
   try {
     const response = await fetch("/api/admin/products/image/delete", {
@@ -48,7 +49,7 @@ $(".delete-image-button").on("click", async function (event) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ imagePath }),
+      body: JSON.stringify({ productId, imagePath }),
     });
 
     const result = await response.json();
@@ -63,6 +64,7 @@ $(".delete-image-button").on("click", async function (event) {
     console.error("Error deleting image:", error);
   }
 });
+
 
 $("#product-form").on("submit", function (e) {
   e.preventDefault();
