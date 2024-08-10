@@ -312,9 +312,7 @@ export default class ProductsController {
 
   async deleteImage(req, productId, imagePath) {
     try {
-      console.log("imagePath", imagePath);
       const publicId = imagePath.split("/").pop().split(".")[0];
-      console.log("publicId", publicId);
       // Eliminar la imagen de Cloudinary
       const cloudinaryResponse = await cloudinary.uploader.destroy(`product_images/${publicId}`);
       

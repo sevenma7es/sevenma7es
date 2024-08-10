@@ -1,8 +1,12 @@
 import EnterpriseController from "../controllers/enterprise.controller.js";
 import SettingsController from "../controllers/settings.controller.js";
+import CartController from "../controllers/cart.controller.js";
+import UserController from "../controllers/user.controller.js";
 
 const enterpriseController = new EnterpriseController();
 const settingsController = new SettingsController();
+const cartController = new CartController();
+const userController = new UserController();
 
 export async function setLayout(req, res, next) {
   if (req.path.startsWith("/admin")) {
@@ -34,9 +38,30 @@ export async function setLayout(req, res, next) {
       settings = null;
     }
 
+    let user = null;
+    if (req.user) {
+      user = await userController.findById(req.user._id);
+    }
+
+    const sendUser = user ? user.user : null;
+
+    let cartProductQuantity
+    let customDisplay = "hidden"
+    if (sendUser) {
+      cartProductQuantity = (await cartController.getCartByUserId(sendUser._id)).products.length
+      if (cartProductQuantity > 0) {
+        customDisplay = "flex"
+      } else {
+        customDisplay = "hidden"
+      }
+    }
+
     res.locals.layout = "client/main";
     res.locals.enterprise = enterprise;
     res.locals.settings = settings;
+    res.locals.user = sendUser;
+    res.locals.cartProductQuantity = cartProductQuantity;
+    res.locals.customDisplay = customDisplay;
   }
   next();
 }

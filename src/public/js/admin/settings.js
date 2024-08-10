@@ -47,7 +47,6 @@ $("#submitHomeChanges").on("click", function () {
       return response.json();
     })
     .then((data) => {
-      console.log("Settings saved:", data);
       $("#_id").val(data._id);
       toast({ status: "success", message: "Configuración guardada con éxito." });
     })
@@ -90,7 +89,6 @@ $("#submitFooterChanges").on("click", function () {
       return response.json();
     })
     .then((data) => {
-      console.log("Settings saved:", data);
       $("#_id").val(data._id);
       toast({ status: "success", message: "Configuración guardada con éxito." });
     })

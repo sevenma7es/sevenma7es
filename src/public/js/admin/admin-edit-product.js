@@ -56,7 +56,6 @@ $(".delete-image-button").on("click", async function (event) {
 
     if (response.ok) {
       $(this).closest(".relative").remove();
-      console.log(result.message);
     } else {
       console.error(result.message);
     }

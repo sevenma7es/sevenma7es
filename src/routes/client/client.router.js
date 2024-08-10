@@ -57,7 +57,7 @@ clientRouter.get("/", userMiddleware, async (req, res) => {
     }
 
     const title = "Inicio";
-    const description = `Bienvenido a ${enterprise?.name ?? "Empresa"}, tu comercio de confianza`;
+    const description = `Bienvenido a ${enterprise?.name ?? "Empresa"}. Compra mates artesanales y personalizados en nuestra tienda online. Descubre una amplia selección de mates de calabaza, acero, algarrobo y más. Ofrecemos envío rápido, atención al cliente personalizada y productos de alta calidad. ¡Haz tu pedido hoy!`;
     if (raw_enterprise && raw_enterprise.length > 0) {
       enterprise = raw_enterprise[0].toJSON();
     } else {
@@ -73,7 +73,6 @@ clientRouter.get("/", userMiddleware, async (req, res) => {
     }
 
     const products = await productsController.findByFeatured();
-    console.log(JSON.stringify(enterprise));
     let user = null;
     if (req.user) {
       user = await userController.findById(req.user._id);
@@ -213,7 +212,6 @@ clientRouter.get("/productos/buscar/:keywords", userMiddleware, async (req, res)
       user = await userController.findById(req.user._id);
     }
 
-    console.log(JSON.stringify(products));
     res.render("client/products", {
       user: user ? user.user : null,
       clientSidebarItems,

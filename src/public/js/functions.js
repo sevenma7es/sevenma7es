@@ -180,7 +180,6 @@ export function addToCart(productId, productQuantity) {
     body: JSON.stringify({ quantity }),
   })
     .then(async (response) => {
-      console.log("Response status:", response.status);
       if (!response.ok) {
         const data = await response.json();
         console.error("Response data:", data);
@@ -192,6 +191,7 @@ export function addToCart(productId, productQuantity) {
       if (!data.result.session) {
         addToLocalStorage(data.result.data);
       }
+      cartIconProductCounter();
       toast({
         status: "success",
         message: "Producto agregado al carrito.",
@@ -241,6 +241,7 @@ export function localCartHandler(productId, action) {
     });
     cart.total = newTotal;
     localStorage.setItem("cart", JSON.stringify(cart));
+    cartIconProductCounter();
   };
 
   const findProductIndex = (id) => {
@@ -254,9 +255,8 @@ export function localCartHandler(productId, action) {
         cart.products[updateIndex].quantity = $(`#quantity-${productId}`).val();
         updateCartTotal();
         $("#total-container").html(cartTotal(cart));
-        console.log("Updated cart:", cart);
       } else {
-        console.log("Product not found");
+        console.error("Product not found");
       }
       break;
     case "delete":
@@ -265,9 +265,8 @@ export function localCartHandler(productId, action) {
         cart.products.splice(deleteIndex, 1);
         updateCartTotal();
         $("#total-container").html(cartTotal(cart));
-        console.log("Updated cart:", cart);
       } else {
-        console.log("Product not found");
+        console.error("Product not found");
       }
       break;
   }
@@ -276,26 +275,62 @@ export function localCartHandler(productId, action) {
 export function checkUserLoggedIn() {
   let userId = localStorage.getItem("userId");
 
+  // if (userId != null) {
+  fetch("/api/client/sessions/current")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("No user logged in");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (!userId) {
+        localStorage.setItem("userId", data.user._id);
+      }
+      cartIconProductCounter();
+    })
+    .catch((error) => {
+      console.info("Info:", error.message);
+      localStorage.removeItem("userId");
+      cartIconProductCounter();
+    });
+  // } else {
+  //   localStorage.removeItem("userId");
+  //   cartIconProductCounter();
+  // }
+}
+
+export function cartIconProductCounter() {
+  let userId = localStorage.getItem("userId");
   if (userId != null) {
-    fetch("/api/client/sessions/current")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("No user logged in");
-        }
-        return response.json();
-      })
+    fetch(`/api/client/carts/${userId}`)
+      .then((response) => response.json())
       .then((data) => {
-        console.log("Usuario logueado:", data.user);
-        if (!userId) {
-          localStorage.setItem("userId", data.user._id);
-          console.log("userId almacenado en localStorage:", data.user._id);
+        if (data.products.length > 0) {
+          $("#product-counter-desktop, #product-counter-mobile").removeClass("hidden").addClass("flex").text(data.products.length);
+          $("#item-count").text(`${data.products.length} Items`);
+        } else {
+          $("#product-counter-desktop, #product-counter-mobile").removeClass("flex").addClass("hidden");
+          $("#item-count").text(`0 Items`);
         }
       })
       .catch((error) => {
         console.info("Info:", error.message);
-        localStorage.removeItem("userId");
       });
   } else {
-    localStorage.removeItem("userId");
+    if (JSON.parse(localStorage.getItem("cart")).products.length > 0) {
+      $("#product-counter-desktop, #product-counter-mobile")
+        .removeClass("hidden")
+        .addClass("flex")
+        .text(JSON.parse(localStorage.getItem("cart")).products.length);
+      
+        $("#item-count").text(`${JSON.parse(localStorage.getItem("cart")).products.length} Items`);
+    } else {
+      $("#product-counter-desktop, #product-counter-mobile")
+        .removeClass("flex")
+        .addClass("hidden")
+      
+        $("#item-count").text(`0 Items`);
+    }
   }
 }

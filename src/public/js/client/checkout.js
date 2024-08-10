@@ -70,7 +70,6 @@ $('input[name="payment-method"]').on("click", async function () {
     $("#wallet_container").html("");
     $("#mercado-pago-spinner").show();
   } else if (this.id === "mercado-pago") {
-    console.log("Opción de Mercado Pago seleccionada");
     $("#whatsapp-payment").hide();
     $("#mercado-pago-payment").show();
     // Mercado Pago:
@@ -93,7 +92,7 @@ $('input[name="payment-method"]').on("click", async function () {
       const preference = await response.json();
       createCheckoutButton(preference.id);
     } catch (err) {
-      console.log("Error procesando el pago: " + err);
+      console.error("Error procesando el pago: " + err);
     }
 
     function createCheckoutButton(preferenceId) {
