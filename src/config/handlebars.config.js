@@ -80,7 +80,6 @@ const hbs = exphbs.create({
       return formattedPrice;
     },
     trim: function (str) {
-      console.log(str);
       return str.trim();
     },
     isAdmin: function (roles, options) {

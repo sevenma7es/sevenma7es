@@ -172,16 +172,13 @@ clientSessionRouter.post("/account/reset-password/:token", async (req, res) => {
     }
 
     user.password = createHash(password);
-    console.log("Password");
     user.resetToken = undefined;
-    console.log("Token");
     user.resetTokenExpiry = undefined;
-    console.log("Reset token");
     await user.save();
 
     res.redirect("/ingresar");
   } catch (error) {
-    console.log("Error: ", error);
+    console.error("Error: ", error);
   }
 });
 

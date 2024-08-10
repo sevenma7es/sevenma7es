@@ -1,4 +1,4 @@
-import { addToCart } from "../functions.js";
+import { addToCart, cartIconProductCounter } from "../functions.js";
 
 $("#product-open-sidebar").on("click", () => {
   $("#product-default-sidebar").removeClass("-translate-x-full");

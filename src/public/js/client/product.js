@@ -20,6 +20,7 @@ let swiperMain = new Swiper(".main-slide-carousel", {
   },
 });
 
+
 $("#removeOne").on("click", function () {
   let quantity = Number($("#quantity").val());
   if ($("#quantity").val() > 1) {

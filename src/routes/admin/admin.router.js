@@ -145,22 +145,25 @@ adminRouter.get("/productos/agregar-producto", privateAccess, async (req, res) =
 });
 
 adminRouter.get("/productos/editar/:pslug", privateAccess, async (req, res) => {
-  const title = "Editar Producto";
-  const description = "Edita un producto de la base de datos";
+  try {
+    const title = "Editar Producto";
+    const description = "Edita un producto de la base de datos";
 
-  const productData = await productsController.findBySlug(req.params.pslug);
-  console.log(JSON.stringify(productData));
-  const categories = await categoriesController.getAll();
+    const productData = await productsController.findBySlug(req.params.pslug);
+    const categories = await categoriesController.getAll();
 
-  console.log("productos: " + productData.description);
-  res.render("admin/edit-product", {
-    isLoggedIn: true,
-    adminSidebarItems,
-    title,
-    description,
-    productData,
-    categories,
-  });
+    res.render("admin/edit-product", {
+      isLoggedIn: true,
+      adminSidebarItems,
+      title,
+      description,
+      productData,
+      categories,
+    });
+  } catch (err) {
+    logger.error("Error al obtener datos del producto:", err);
+    res.status(500).send("Error al obtener datos del producto");
+  }
 });
 
 adminRouter.get("/categorias", privateAccess, async (req, res) => {

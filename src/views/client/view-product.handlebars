@@ -2,31 +2,31 @@
   .swiper { width: 100%; height: auto; } .swiper-wrapper { display: flex; height: auto; } .swiper-slide { flex: 1 0 auto; } .nav-for-slider .swiper-slide { height: auto; width: auto; cursor: pointer; } .swiper-wrapper { height: auto; } .nav-for-slider .swiper-slide img { border: 2px solid transparent; border-radius: 10px; } .nav-for-slider .swiper-slide-thumb-active img { border-color: rgb(79 70 229); }
 </style>
 <section>
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2">
-      <div class="slider-box h-full mx-0 w-full max-lg:max-w-[608px] lg:pl-8 xl:pl-16 max-lg:mx-auto max-lg:mt-8">
-        <div class="swiper main-slide-carousel swiper-container relative mb-6 overflow-hidden">
-          <div class="swiper-wrapper flex">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:h-[90vh]">
+    <div class="grid grid-cols-1 lg:grid-cols-2 lg:h-[90vh]">
+      <div class="slider-box h-full mx-0 w-full max-lg:max-w-[608px] lg:pl-8 xl:pl-16 max-lg:mx-auto max-lg:mt-8 lg:flex">
+        <div class="swiper main-slide-carousel swiper-container relative overflow-hidden lg:order-2">
+          <div class="swiper-wrapper flex !h-full">
             {{#each product.images}}
-              <div class="swiper-slide flex justify-center items-center w-full border border-[var(--main-bg-light)] dark:border-[var(--main-bg-dark)] rounded-lg overflow-hidden">
-                <img src="{{this}}" alt="{{product.title}}" />
+              <div class="swiper-slide flex justify-center items-center w-full border border-[var(--main-bg-light)] dark:border-[var(--main-bg-dark)] overflow-hidden">
+                <img class="h-full object-cover" src="{{this}}" alt="{{product.title}}" />
               </div>
             {{/each}}
           </div>
         </div>
-        <div class="nav-for-slider w-full max-lg:max-w-[608px] max-lg:mx-auto max-lg:mt-8">
-          <div class="swiper-wrapper flex !w-fit">
+        <div class="nav-for-slider w-full lg:w-fit max-lg:max-w-[608px] max-lg:mx-auto max-lg:mt-8 lg:order-1">
+          <div class="swiper-wrapper flex lg:flex-col lg:items-end !w-fit">
             {{#each product.images}}
               <div class="swiper-slide thumbs-slide !w-fit">
-                <img src="{{this}}" alt="{{product.title}}" class="cursor-pointer rounded-xl transition-all duration-500 min-[400px]:h-[100px]" />
+                <img src="{{this}}" alt="{{product.title}}" class="cursor-pointer rounded-xl transition-all duration-500 h-[100px]" />
               </div>
             {{/each}}
           </div>
         </div>
       </div>
 
-      <div class="flex justify-center items-center bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] ml-0 md:ml-2 mt-2 sm:mt-0">
-        <div class="pro-detail w-full max-lg:max-w-[608px] p-4 lg:px-8 xl:px-16 max-lg:mx-auto max-lg:mt-8">
+      <div class="flex justify-center bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] ml-0 mt-2 sm:mt-0">
+        <div class="pro-detail w-full max-lg:max-w-[608px] p-4 lg:px-8 xl:p-16 max-lg:mx-auto max-lg:mt-8">
           <div class="flex items-center justify-between gap-6 mb-6">
             <div class="text">
               <h2 class="font-manrope font-bold text-3xl leading-10 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] mb-2">
@@ -42,7 +42,7 @@
             </button> }}
           </div>
 
-          <div class="flex flex-col min-[400px]:flex-row min-[400px]:items-center mb-8 gap-y-3">
+          <div class="flex flex-row items-center mb-8 gap-y-3">
             <div class="flex items-center">
               <h5 class="font-manrope font-semibold text-2xl leading-9 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)]">{{currency product.price "arg"}}
               </h5>
@@ -73,7 +73,7 @@
               <span class="text-base font-medium text-white">4.8</span>
             </button> }}
           </div>
-          <div class="flex items-center flex-col min-[400px]:flex-row gap-3 mb-3 min-[400px]:mb-8">
+          <div class="flex items-center flex-row gap-3 mb-8">
             <div class="flex items-center h-full">
               <button class="group rounded-l-xl px-5 py-[18px] border border-[var(--main-dark-1)] dark:border-[var(--main-light-1)] flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-[var(--main-light-accent)] hover:dark:bg-[var(--main-dark-accent)] focus-within:outline-gray-300 removeOne" id="removeOne">
                 <svg class="stroke-[var(--main-dark-1)] dark:stroke-[var(--main-light-1)] transition-all duration-500" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">

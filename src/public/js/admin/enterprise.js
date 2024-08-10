@@ -39,7 +39,6 @@ $("#update-enterprise-button").on("click", function (event) {
     contentType: "application/json",
     data: JSON.stringify(enterpriseData),
     success: function (response) {
-      console.log("Enterprise saved:", response);
       toast({ status: "success", message: "Empresa guardada con éxito." });
     },
     error: function (xhr, status, error) {

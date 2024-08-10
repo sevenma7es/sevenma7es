@@ -78,7 +78,6 @@ $("#category-form").submit(function (e) {
       body: JSON.stringify(obj),
     })
       .then(async (response) => {
-        console.log("Response status:", response.status);
         if (!response.ok) {
           const data = await response.json();
           console.error("Response data:", data);

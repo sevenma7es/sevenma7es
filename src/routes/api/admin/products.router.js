@@ -92,7 +92,6 @@ adminProductsRouter.get("/search", privateAccess, async (req, res) => {
 adminProductsRouter.delete("/image/delete", async function (req, res) {
   try {
     const { productId, imagePath } = req.body;
-    console.log("imagePath", imagePath);
     const response = await productController.deleteImage(req, productId, imagePath);
     res.status(response.status).json(response);
   } catch (error) {
