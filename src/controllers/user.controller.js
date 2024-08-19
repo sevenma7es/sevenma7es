@@ -54,14 +54,20 @@ class UserController {
         page: parseInt(page),
         hasPrevPage: page > 1,
         hasNextPage: page < totalPages,
-        prevLink: page > 1 ? `/api/users?limit=${limit}&page=${page - 1}` : null,
-        nextLink: page < totalPages ? `/api/users?limit=${limit}&page=${page + 1}` : null,
+        prevLink:
+          page > 1 ? `/api/users?limit=${limit}&page=${page - 1}` : null,
+        nextLink:
+          page < totalPages
+            ? `/api/users?limit=${limit}&page=${page + 1}`
+            : null,
       };
 
       return result;
     } catch (error) {
       console.error("Error in /users route:", error);
-      res.status(500).json({ status: "error", message: "Internal server error" });
+      res
+        .status(500)
+        .json({ status: "error", message: "Internal server error" });
     }
   }
 
@@ -114,12 +120,25 @@ class UserController {
     }
   }
 
-  async verifyEmail(user_id) {
+  async verifyEmail(token) {
     try {
-      await userDao.verifyEmail(user_id);
+      await userDao.verifyEmail(token);
       return { status: "success", message: "Email verified successfully" };
     } catch (error) {
       logger.error("Error verifying user email:", error.message);
+      throw error;
+    }
+  }
+
+  async getVerificationToken(email) {
+    try {
+      const token = await userDao.getVerificationToken(email);
+      return {
+        status: "success",
+        token: token,
+      };
+    } catch (error) {
+      logger.error("Error getting verification token:", error.message);
       throw error;
     }
   }

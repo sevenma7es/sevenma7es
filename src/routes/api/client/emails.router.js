@@ -20,7 +20,10 @@ clientMailerRouter.post("/register/:email", async (req, res) => {
   try {
     const destination = req.body.data.email || "";
     let data = req.body.data || "";
-    const filePath = path.join(__dirname, "../../../views/client/emails/register.handlebars");
+    const filePath = path.join(
+      __dirname,
+      "../../../views/client/emails/register.handlebars"
+    );
     const templateSource = await readFile(filePath, "utf8");
     const template = Handlebars.compile(templateSource);
 
@@ -34,6 +37,21 @@ clientMailerRouter.post("/register/:email", async (req, res) => {
       data.enterprise = enterprise;
     }
 
+    const verificationToken = await userController.getVerificationToken(
+      destination
+    );
+
+    let user_verified_token;
+    if (verificationToken) {
+      user_verified_token = verificationToken.token;
+    } else {
+      user_verified_token = "";
+    }
+
+    data.user_verified_token = user_verified_token;
+
+    console.log(user_verified_token);
+
     const user = await userController.findByEmail(destination);
     if (user) {
       data.user_id = user._id;
@@ -43,7 +61,9 @@ clientMailerRouter.post("/register/:email", async (req, res) => {
 
     const html = template(data);
     await mailerTransport.sendMail({
-      from: `${data.enterprise ? data.enterprise.name : ""} <${mailing.auth.EMAIL_USER}>`,
+      from: `${data.enterprise ? data.enterprise.name : ""} <${
+        mailing.auth.EMAIL_USER
+      }>`,
       to: destination,
       subject: "Solicitud de registro procesada con éxito",
       html: html,
@@ -81,13 +101,18 @@ clientMailerRouter.post("/account/request-reset", async (req, res) => {
   }
 
   try {
-    const filePath = path.join(__dirname, "../../../views/client/emails/request-reset.handlebars");
+    const filePath = path.join(
+      __dirname,
+      "../../../views/client/emails/request-reset.handlebars"
+    );
     const templateSource = await readFile(filePath, "utf8");
     const template = Handlebars.compile(templateSource);
     const html = template(data);
 
     await mailerTransport.sendMail({
-      from: `${data.enterprise ? data.enterprise.name : ""} <${mailing.auth.EMAIL_USER}>`,
+      from: `${data.enterprise ? data.enterprise.name : ""} <${
+        mailing.auth.EMAIL_USER
+      }>`,
       to: destination,
       subject: "Solicitud de cambio de contraseña",
       html: html,

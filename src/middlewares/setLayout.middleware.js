@@ -45,14 +45,22 @@ export async function setLayout(req, res, next) {
 
     const sendUser = user ? user.user : null;
 
-    let cartProductQuantity
-    let customDisplay = "hidden"
+    let cartProduct;
+    let cartProductQuantity;
+    let customDisplay = "hidden";
     if (sendUser) {
-      cartProductQuantity = (await cartController.getCartByUserId(sendUser._id)).products.length
-      if (cartProductQuantity > 0) {
-        customDisplay = "flex"
+      cartProduct = await cartController.getCartByUserId(sendUser._id);
+
+      if (cartProduct) {
+        cartProductQuantity = cartProduct.products.length;
       } else {
-        customDisplay = "hidden"
+        cartProductQuantity = 0;
+      }
+
+      if (cartProductQuantity > 0) {
+        customDisplay = "flex";
+      } else {
+        customDisplay = "hidden";
       }
     }
 
