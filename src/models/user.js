@@ -47,6 +47,7 @@ const userSchema = new Schema(
       default: Date.now,
     },
     verified: { type: Boolean, default: false },
+    verifiedToken: { type: String, required: false },
     resetToken: String,
     resetTokenExpiry: Date,
   },

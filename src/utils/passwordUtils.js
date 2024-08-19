@@ -23,3 +23,12 @@ export const createHash = (password) => {
 export const isValidPassword = (user, password) => {
   return bcrypt.compareSync(password, user.password);
 };
+
+export async function createEmailVerificationToken(email) {
+  const timestamp = Date.now();
+  const dataToHash = `${timestamp}-${email}`;
+
+  const saltRounds = 10;
+
+  return bcrypt.hash(dataToHash, saltRounds);
+}

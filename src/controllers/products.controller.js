@@ -35,7 +35,12 @@ export default class ProductsController {
       if (query) {
         products = await productsDAO.getProducts(limit, page, {}, filter);
       } else {
-        products = await productsDAO.getProducts(limit, page, sortOptions, filter);
+        products = await productsDAO.getProducts(
+          limit,
+          page,
+          sortOptions,
+          filter
+        );
       }
 
       const totalProducts = await productsDAO.countProducts(filter);
@@ -50,17 +55,25 @@ export default class ProductsController {
         page: parseInt(page),
         hasPrevPage: page > 1,
         hasNextPage: page < totalPages,
-        prevLink: page > 1 ? `/api/products?limit=${limit}&page=${page - 1}` : null,
-        nextLink: page < totalPages ? `/api/products?limit=${limit}&page=${page + 1}` : null,
+        prevLink:
+          page > 1 ? `/api/products?limit=${limit}&page=${page - 1}` : null,
+        nextLink:
+          page < totalPages
+            ? `/api/products?limit=${limit}&page=${page + 1}`
+            : null,
       };
 
       return result;
     } catch (error) {
       const stackTrace = error.stack.split("\n");
-      const errorLine = stackTrace.find((line) => line.includes("at getProducts"));
+      const errorLine = stackTrace.find((line) =>
+        line.includes("at getProducts")
+      );
 
       logger.error(`Error in /products route: ${errorLine}`, error);
-      res.status(500).json({ status: "error", message: "Internal server error" });
+      res
+        .status(500)
+        .json({ status: "error", message: "Internal server error" });
     }
   }
 
@@ -88,7 +101,12 @@ export default class ProductsController {
 
       let products;
       if (keywords) {
-        products = await productsDAO.getProducts(limit, page, sortOptions, filter);
+        products = await productsDAO.getProducts(
+          limit,
+          page,
+          sortOptions,
+          filter
+        );
       }
 
       const totalProducts = await productsDAO.countProducts(filter);
@@ -103,17 +121,25 @@ export default class ProductsController {
         page: parseInt(page),
         hasPrevPage: page > 1,
         hasNextPage: page < totalPages,
-        prevLink: page > 1 ? `/api/products?limit=${limit}&page=${page - 1}` : null,
-        nextLink: page < totalPages ? `/api/products?limit=${limit}&page=${page + 1}` : null,
+        prevLink:
+          page > 1 ? `/api/products?limit=${limit}&page=${page - 1}` : null,
+        nextLink:
+          page < totalPages
+            ? `/api/products?limit=${limit}&page=${page + 1}`
+            : null,
       };
 
       return result;
     } catch (error) {
       const stackTrace = error.stack.split("\n");
-      const errorLine = stackTrace.find((line) => line.includes("at findByKeywords"));
+      const errorLine = stackTrace.find((line) =>
+        line.includes("at findByKeywords")
+      );
 
       logger.error(`Error in /products route: ${errorLine}`, error);
-      res.status(500).json({ status: "error", message: "Internal server error" });
+      res
+        .status(500)
+        .json({ status: "error", message: "Internal server error" });
     }
   }
 
@@ -141,7 +167,12 @@ export default class ProductsController {
         sortOptions.price = sort === "asc" ? 1 : -1;
       }
 
-      const products = await productsDAO.getProducts(limit, page, sortOptions, filter);
+      const products = await productsDAO.getProducts(
+        limit,
+        page,
+        sortOptions,
+        filter
+      );
 
       const totalProducts = await productsDAO.countProducts(filter);
       const totalPages = Math.ceil(totalProducts / limit);
@@ -155,14 +186,20 @@ export default class ProductsController {
         page: parseInt(page),
         hasPrevPage: page > 1,
         hasNextPage: page < totalPages,
-        prevLink: page > 1 ? `/api/products?limit=${limit}&page=${page - 1}` : null,
-        nextLink: page < totalPages ? `/api/products?limit=${limit}&page=${page + 1}` : null,
+        prevLink:
+          page > 1 ? `/api/products?limit=${limit}&page=${page - 1}` : null,
+        nextLink:
+          page < totalPages
+            ? `/api/products?limit=${limit}&page=${page + 1}`
+            : null,
       };
 
       return result;
     } catch (error) {
       logger.error(`Error in findByCategory: ${error.message}`, error);
-      res.status(500).json({ status: "error", message: "Internal server error" });
+      res
+        .status(500)
+        .json({ status: "error", message: "Internal server error" });
     }
   }
 
@@ -226,7 +263,9 @@ export default class ProductsController {
       return res.json(result);
     } catch (error) {
       logger.error("[Controller] Error adding product:", error);
-      return res.status(500).json({ error: "[Controller] Error adding product" });
+      return res
+        .status(500)
+        .json({ error: "[Controller] Error adding product" });
     }
   }
 
@@ -293,7 +332,10 @@ export default class ProductsController {
   async getProductStats(req, res) {
     try {
       const totalProducts = await productsDAO.countProducts({});
-      const productsByCategory = await Product.aggregate([{ $unwind: "$categories" }, { $group: { _id: "$categories", count: { $sum: 1 } } }]);
+      const productsByCategory = await Product.aggregate([
+        { $unwind: "$categories" },
+        { $group: { _id: "$categories", count: { $sum: 1 } } },
+      ]);
       const lowStockProducts = await Product.find({ stock: { $lt: 10 } });
 
       res.json({
@@ -306,25 +348,34 @@ export default class ProductsController {
       });
     } catch (error) {
       logger.error("[Controller] Error fetching product stats:", error);
-      res.status(500).json({ status: "error", message: "Internal server error" });
+      res
+        .status(500)
+        .json({ status: "error", message: "Internal server error" });
     }
   }
 
   async deleteImage(req, productId, imagePath) {
     try {
       const publicId = imagePath.split("/").pop().split(".")[0];
-      // Eliminar la imagen de Cloudinary
-      const cloudinaryResponse = await cloudinary.uploader.destroy(`product_images/${publicId}`);
-      
+      console.log(publicId);
+      const cloudinaryResponse = await cloudinary.uploader.destroy(
+        `product_images/${publicId}`
+      );
+
       if (cloudinaryResponse.result !== "ok") {
         throw new Error("Error al eliminar la imagen de Cloudinary");
       }
 
-      // Eliminar la referencia de la imagen en MongoDB
-      const result = await productsDAO.removeImageFromProduct(productId, imagePath);
+      const result = await productsDAO.removeImageFromProduct(
+        productId,
+        imagePath
+      );
 
       if (result.status === "error") {
-        return { status: 500, message: "Error al eliminar la imagen del producto" };
+        return {
+          status: 500,
+          message: "Error al eliminar la imagen del producto",
+        };
       }
 
       return { status: 200, message: "Imagen eliminada correctamente" };

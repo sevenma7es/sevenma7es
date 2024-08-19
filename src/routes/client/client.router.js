@@ -57,7 +57,9 @@ clientRouter.get("/", userMiddleware, async (req, res) => {
     }
 
     const title = "Inicio";
-    const description = `Bienvenido a ${enterprise?.name ?? "Empresa"}. Compra mates artesanales y personalizados en nuestra tienda online. Descubre una amplia selección de mates de calabaza, acero, algarrobo y más. Ofrecemos envío rápido, atención al cliente personalizada y productos de alta calidad. ¡Haz tu pedido hoy!`;
+    const description = `Bienvenido a ${
+      enterprise?.name ?? "Empresa"
+    }. Compra mates artesanales y personalizados en nuestra tienda online. Descubre una amplia selección de mates de calabaza, acero, algarrobo y más. Ofrecemos envío rápido, atención al cliente personalizada y productos de alta calidad. ¡Haz tu pedido hoy!`;
     if (raw_enterprise && raw_enterprise.length > 0) {
       enterprise = raw_enterprise[0].toJSON();
     } else {
@@ -102,7 +104,14 @@ clientRouter.get("/productos", userMiddleware, async (req, res) => {
     const limit = req.query.limit || 9;
     const page = req.query.page || 1;
     const sort = req.query.sort || null;
-    const response = await productsController.getProducts(req, res, query, limit, page, sort);
+    const response = await productsController.getProducts(
+      req,
+      res,
+      query,
+      limit,
+      page,
+      sort
+    );
     const products = response.ResultSet;
     const categories = await categoriesController.getAll();
     const productsCategoriesComponent = productsCategories(categories);
@@ -127,7 +136,10 @@ clientRouter.get("/productos", userMiddleware, async (req, res) => {
       hasPrevPage: page > 1,
       hasNextPage: page < totalPages,
       prevLink: page > 1 ? `/productos?limit=${limit}&page=${page - 1}` : null,
-      nextLink: page < totalPages ? `/productos?limit=${limit}&page=${parseInt(page) + 1}` : null,
+      nextLink:
+        page < totalPages
+          ? `/productos?limit=${limit}&page=${parseInt(page) + 1}`
+          : null,
       sort,
     });
   } catch (error) {
@@ -189,88 +201,110 @@ clientRouter.get("/contacto/", (req, res) => {
   });
 });
 
-clientRouter.get("/productos/buscar/:keywords", userMiddleware, async (req, res) => {
-  try {
-    const title = "Productos";
-    const description = "Listado de todos nuestros productos.";
-    const screen = "products";
-    const keywords = req.params.keywords || "";
-    const limit = req.query.limit || 10;
-    const page = req.query.page || 1;
-    const sort = req.query.sort || null;
-    const response = await productsController.findByKeywords(req, res, keywords, limit, page, sort);
-    const products = response.ResultSet;
-    const categories = await categoriesController.getAll();
-    const productsCategoriesComponent = productsCategories(categories);
-    const categorySelectTitle = "Categoría";
-    const totalProducts = await productsController.countProducts();
-    const productsPerPage = 10;
-    const totalPages = Math.ceil(totalProducts / productsPerPage);
-    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-    let user = null;
-    if (req.user) {
-      user = await userController.findById(req.user._id);
-    }
+clientRouter.get(
+  "/productos/buscar/:keywords",
+  userMiddleware,
+  async (req, res) => {
+    try {
+      const title = "Productos";
+      const description = "Listado de todos nuestros productos.";
+      const screen = "products";
+      const keywords = req.params.keywords || "";
+      const limit = req.query.limit || 10;
+      const page = req.query.page || 1;
+      const sort = req.query.sort || null;
+      const response = await productsController.findByKeywords(
+        req,
+        res,
+        keywords,
+        limit,
+        page,
+        sort
+      );
+      const products = response.ResultSet;
+      const categories = await categoriesController.getAll();
+      const productsCategoriesComponent = productsCategories(categories);
+      const categorySelectTitle = "Categoría";
+      const totalProducts = await productsController.countProducts();
+      const productsPerPage = 10;
+      const totalPages = Math.ceil(totalProducts / productsPerPage);
+      const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+      let user = null;
+      if (req.user) {
+        user = await userController.findById(req.user._id);
+      }
 
-    res.render("client/products", {
-      user: user ? user.user : null,
-      clientSidebarItems,
-      title,
-      description,
-      products,
-      productsCategoriesComponent,
-      categorySelectTitle,
-      pages,
-      sort,
-    });
-  } catch (error) {
-    logger.error("Error al obtener productos:", error);
-    res.status(500).send("Error al obtener productos");
-  }
-});
-
-clientRouter.get("/productos/categoria/:slug", userMiddleware, async (req, res) => {
-  try {
-    const title = "Productos";
-    const description = "Listado de todos nuestros productos.";
-    const screen = "products";
-    const slug = req.params.slug || "";
-    const limit = req.query.limit || 10;
-    const page = req.query.page || 1;
-    const response = await productsController.findByCategory(req, res, slug, limit, page);
-    const products = response.ResultSet;
-    const categories = await categoriesController.getAll();
-    const productsCategoriesComponent = productsCategories(categories);
-    const categoryBySlug = await categoriesController.findBySlug(slug);
-    const categorySelectTitle = categoryBySlug.name;
-    const totalProducts = await productsController.countProducts();
-    const productsPerPage = 10;
-    const totalPages = Math.ceil(totalProducts / productsPerPage);
-    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-    let user = null;
-    if (req.user) {
-      user = await userController.findById(req.user._id);
+      res.render("client/products", {
+        user: user ? user.user : null,
+        clientSidebarItems,
+        title,
+        description,
+        products,
+        productsCategoriesComponent,
+        categorySelectTitle,
+        pages,
+        sort,
+      });
+    } catch (error) {
+      logger.error("Error al obtener productos:", error);
+      res.status(500).send("Error al obtener productos");
     }
-    res.render("client/products", {
-      user: user ? user.user : null,
-      clientSidebarItems,
-      title,
-      description,
-      products,
-      productsCategoriesComponent,
-      categoryBySlug,
-      categorySelectTitle,
-      pages,
-    });
-  } catch (error) {
-    logger.error("Error al obtener productos:", error);
-    res.status(500).send("Error al obtener productos");
   }
-});
+);
+
+clientRouter.get(
+  "/productos/categoria/:slug",
+  userMiddleware,
+  async (req, res) => {
+    try {
+      const title = "Productos";
+      const description = "Listado de todos nuestros productos.";
+      const screen = "products";
+      const slug = req.params.slug || "";
+      const limit = req.query.limit || 10;
+      const page = req.query.page || 1;
+      const response = await productsController.findByCategory(
+        req,
+        res,
+        slug,
+        limit,
+        page
+      );
+      const products = response.ResultSet;
+      const categories = await categoriesController.getAll();
+      const productsCategoriesComponent = productsCategories(categories);
+      const categoryBySlug = await categoriesController.findBySlug(slug);
+      const categorySelectTitle = categoryBySlug.name;
+      const totalProducts = await productsController.countProducts();
+      const productsPerPage = 10;
+      const totalPages = Math.ceil(totalProducts / productsPerPage);
+      const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+      let user = null;
+      if (req.user) {
+        user = await userController.findById(req.user._id);
+      }
+      res.render("client/products", {
+        user: user ? user.user : null,
+        clientSidebarItems,
+        title,
+        description,
+        products,
+        productsCategoriesComponent,
+        categoryBySlug,
+        categorySelectTitle,
+        pages,
+      });
+    } catch (error) {
+      logger.error("Error al obtener productos:", error);
+      res.status(500).send("Error al obtener productos");
+    }
+  }
+);
 
 clientRouter.get("/registro", (req, res) => {
   const title = "Registro";
-  const description = "Registrate en nuestra tienda para pasar a ser parte de esta gran familia.";
+  const description =
+    "Registrate en nuestra tienda para pasar a ser parte de esta gran familia.";
   res.render("client/register", {
     title,
     description,
@@ -280,7 +314,8 @@ clientRouter.get("/registro", (req, res) => {
 
 clientRouter.get("/ingresar", (req, res) => {
   const title = "Iniciar sesión";
-  const description = "Inicia sesión en tu cuenta para poder manejar tu carrito y finalizar la compra..";
+  const description =
+    "Inicia sesión en tu cuenta para poder manejar tu carrito y finalizar la compra..";
   res.render("client/login", {
     title,
     description,
@@ -291,7 +326,8 @@ clientRouter.get("/ingresar", (req, res) => {
 clientRouter.get("/recuperar-cuenta", async (req, res) => {
   try {
     const title = "Recuperar Cuenta";
-    const description = "Recibe un código de recuperación en tu correo electrónico.";
+    const description =
+      "Recibe un código de recuperación en tu correo electrónico.";
 
     const raw_enterprise = await enterpriseController.getEnterpriseData();
     let enterprise;
@@ -316,7 +352,8 @@ clientRouter.get("/recuperar-cuenta", async (req, res) => {
 clientRouter.get("/recuperar-cuenta/:token", async (req, res) => {
   try {
     const title = "Recuperar Cuenta";
-    const description = "Recibe un código de recuperación en tu correo electrónico.";
+    const description =
+      "Recibe un código de recuperación en tu correo electrónico.";
     const token = req.params.token;
 
     const raw_enterprise = await enterpriseController.getEnterpriseData();
@@ -355,10 +392,10 @@ clientRouter.get("/carrito", async (req, res) => {
   });
 });
 
-clientRouter.get("/usuario/verificar-email/:uid", async (req, res) => {
+clientRouter.get("/usuario/verificar-email/:token", async (req, res) => {
   try {
-    const user_id = req.params.uid;
-    await userController.verifyEmail(user_id);
+    const token_id = req.params.token;
+    await userController.verifyEmail(token_id);
     res.render("client/emails/verified-email");
   } catch (err) {
     res.render("Ocurrió un error inesperado: " + err.message);

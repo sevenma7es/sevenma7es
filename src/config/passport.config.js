@@ -1,7 +1,11 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { Strategy as GithubStrategy } from "passport-github2";
-import { isValidPassword, createHash } from "../utils/passwordUtils.js";
+import {
+  isValidPassword,
+  createHash,
+  createEmailVerificationToken,
+} from "../utils/passwordUtils.js";
 import User from "../models/user.js";
 import { CALLBACK_URL, CLIENT_ID, CLIENT_SECRET } from "./env.js";
 
@@ -97,12 +101,14 @@ const initializePassport = () => {
           }
 
           const hashedPassword = createHash(password);
+          const verifiedToken = await createEmailVerificationToken(email);
 
           const result = await User.create({
             full_name,
             email,
             roles: ["user"],
             password: hashedPassword,
+            verifiedToken: verifiedToken,
           });
 
           done(null, result);

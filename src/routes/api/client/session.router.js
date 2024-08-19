@@ -16,11 +16,14 @@ clientSessionRouter.post(
   }),
   async (req, res, next) => {
     try {
-      const { email, full_name, roles } = req.user;
+      const { email, full_name, roles, verifiedToken } = req.user;
 
-      res
-        .status(200)
-        .json({ email: email, full_name: full_name, roles: roles });
+      res.status(200).json({
+        email: email,
+        full_name: full_name,
+        roles: roles,
+        verifiedToken: verifiedToken,
+      });
     } catch (error) {
       next(error);
     }

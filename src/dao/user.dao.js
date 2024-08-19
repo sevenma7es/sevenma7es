@@ -73,9 +73,12 @@ class UserDAO {
     }
   }
 
-  async verifyEmail(user_id) {
+  async verifyEmail(token) {
     try {
-      const user = await User.findByIdAndUpdate(user_id, { verified: true }, { new: true }).lean();
+      const user = await User.updateOne(
+        { verifiedToken: token },
+        { $set: { verified: true } }
+      );
       return user;
     } catch (error) {
       logger.error("Error verifying email: ", error.message);
@@ -89,6 +92,17 @@ class UserDAO {
       return count;
     } catch (error) {
       logger.error("Error counting admin users", error);
+      throw error;
+    }
+  }
+
+  async getVerificationToken(email) {
+    try {
+      const user = await User.findOne({ email: email }).lean();
+      const token = user.verifiedToken;
+      return token;
+    } catch (error) {
+      logger.error("Error getting verification token: ", error.message);
       throw error;
     }
   }

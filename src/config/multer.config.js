@@ -7,12 +7,22 @@ const storage = new CloudinaryStorage({
   params: {
     folder: "product_images",
     format: async (req, file) => "webp",
-    public_id: (req, file) => `${Date.now()}_${file.originalname.split(".")[0]}`,
+    public_id: (req, file) => {
+      const originalName = file.originalname.split(".")[0];
+      // Reemplaza los espacios con guiones bajos
+      const sanitizedFileName = originalName.replace(/\s+/g, "_");
+      return `${Date.now()}_${sanitizedFileName}`;
+    },
   },
 });
 
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype === "image/jpg" || file.mimetype === "image/jpeg" || file.mimetype === "image/png" || file.mimetype === "image/webp") {
+  if (
+    file.mimetype === "image/jpg" ||
+    file.mimetype === "image/jpeg" ||
+    file.mimetype === "image/png" ||
+    file.mimetype === "image/webp"
+  ) {
     cb(null, true);
   } else {
     cb(null, false);
