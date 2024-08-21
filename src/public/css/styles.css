@@ -953,6 +953,9 @@ video {
   width: -moz-fit-content !important;
   width: fit-content !important;
 }
+.\!w-full {
+  width: 100% !important;
+}
 .w-1\/2 {
   width: 50%;
 }
@@ -1440,6 +1443,10 @@ video {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
 }
+.bg-\[\#24AE7C\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(36 174 124 / var(--tw-bg-opacity));
+}
 .bg-\[\#263237\] {
   --tw-bg-opacity: 1;
   background-color: rgb(38 50 55 / var(--tw-bg-opacity));
@@ -1590,6 +1597,9 @@ video {
 }
 .p-8 {
   padding: 2rem;
+}
+.p-\[0\.15rem\] {
+  padding: 0.15rem;
 }
 .px-0 {
   padding-left: 0px;
@@ -1900,6 +1910,9 @@ video {
 .tracking-tight {
   letter-spacing: -0.025em;
 }
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
 .text-\[\#263237\] {
   --tw-text-opacity: 1;
   color: rgb(38 50 55 / var(--tw-text-opacity));
@@ -2126,11 +2139,17 @@ video {
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+
 * {
-  font-family: "Merriweather Sans", sans-serif !important;
+  font-family: "Bebas Neue", sans-serif !important;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+  letter-spacing: 0.025em;
 }
 #client-logo {
   color: #343a40 !important;
@@ -2424,6 +2443,11 @@ video {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity)) !important;
 }
 
+.hover\:bg-\[\#31c28d\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(49 194 141 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-\[\#495057\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(73 80 87 / var(--tw-bg-opacity));
@@ -2567,6 +2591,12 @@ video {
 .hover\:shadow-indigo-200:hover {
   --tw-shadow-color: #c7d2fe;
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.hover\:transition-all:hover {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .focus\:z-10:focus {
