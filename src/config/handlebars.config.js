@@ -91,6 +91,44 @@ const hbs = exphbs.create({
     isChecked: function (value) {
       return value ? "checked" : "";
     },
+    discount: function (price, locale) {
+      let formattedPrice;
+
+      switch (locale) {
+        case "arg":
+          formattedPrice = new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS",
+            minimumFractionDigits: 2,
+          }).format(price - (price*0.2));
+          break;
+
+        default:
+          formattedPrice = price - (price*0.2);
+          break;
+      }
+
+      return formattedPrice;
+    },
+    cuotas: function (price, locale) {
+      let formattedPrice;
+
+      switch (locale) {
+        case "arg":
+          formattedPrice = new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS",
+            minimumFractionDigits: 2,
+          }).format(price/3);
+          break;
+
+        default:
+          formattedPrice = price/3;
+          break;
+      }
+
+      return formattedPrice;
+    },
   },
   defaultLayout: "main",
   layoutsDir: getPath("views/layouts"),

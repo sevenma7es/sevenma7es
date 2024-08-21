@@ -163,36 +163,40 @@
                 class="p-2 flex items-start justify-between bg-[var(--main-light-accent)] dark:bg-[var(--main-dark-accent)] rounded-bl-xl rounded-br-xl">
                 <div class="w-full">
                   <p
-                    class="font-medium text-xl leading-8 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] mb-2 pr-2">
+                    class="font-medium text-[16px] leading-8 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)] pr-2">
                     <a class="hover:underline" href="/producto/{{slug}}">{{title}}</a>
                   </p>
-                  {{!-- <p class="font-semibold text-xl leading-8 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)]">
-                    {{currency price "arg"}}</p> --}}
-                    <div class="flex items-center justify-between">
-                      <p class="font-semibold text-xl leading-8 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)]">
-                    {{currency price "arg"}}</p>
-                      <button aria-label="Agregar al carrito"
-                        class="addToCart p-2 min-[400px]:p-2 rounded-full bg-white border border-gray-300 flex items-center justify-center group shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-400 hover:bg-gray-50"
-                        data-product-id="{{_id}}" type="button">
-                          <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black"
-                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 26 26" fill="none">
-                    <path
-                      d="M12.6892 21.125C12.6892 22.0225 11.9409 22.75 11.0177 22.75C10.0946 22.75 9.34632 22.0225 9.34632 21.125M19.3749 21.125C19.3749 22.0225 18.6266 22.75 17.7035 22.75C16.7804 22.75 16.032 22.0225 16.032 21.125M4.88917 6.5L6.4566 14.88C6.77298 16.5715 6.93117 17.4173 7.53301 17.917C8.13484 18.4167 8.99525 18.4167 10.7161 18.4167H18.0056C19.7266 18.4167 20.587 18.4167 21.1889 17.9169C21.7907 17.4172 21.9489 16.5714 22.2652 14.8798L22.8728 11.6298C23.3172 9.25332 23.5394 8.06508 22.8896 7.28254C22.2398 6.5 21.031 6.5 18.6133 6.5H4.88917ZM4.88917 6.5L4.33203 3.25"
-                      stroke="" stroke-width="1.6" stroke-linecap="round" />
-                  </svg>
-                      </button>
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="flex flex-col">
+                      <p class="font-semibold text-xl leading-8 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] flex items-center gap-2">
+                        {{currency price "arg"}}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 -11 70 70" fill="none">
+                        <rect x="0.5" y="0.5" width="69" height="47" rx="5.5" fill="white" stroke="#D9D9D9"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.2505 32.5165H17.0099L13.8299 20.3847C13.679 19.8267 13.3585 19.3333 12.8871 19.1008C11.7106 18.5165 10.4142 18.0514 9 17.8169V17.3498H15.8313C16.7742 17.3498 17.4813 18.0514 17.5991 18.8663L19.2491 27.6173L23.4877 17.3498H27.6104L21.2505 32.5165ZM29.9675 32.5165H25.9626L29.2604 17.3498H33.2653L29.9675 32.5165ZM38.4467 21.5514C38.5646 20.7346 39.2717 20.2675 40.0967 20.2675C41.3931 20.1502 42.8052 20.3848 43.9838 20.9671L44.6909 17.7016C43.5123 17.2345 42.216 17 41.0395 17C37.1524 17 34.3239 19.1008 34.3239 22.0165C34.3239 24.2346 36.3274 25.3992 37.7417 26.1008C39.2717 26.8004 39.861 27.2675 39.7431 27.9671C39.7431 29.0165 38.5646 29.4836 37.3881 29.4836C35.9739 29.4836 34.5596 29.1338 33.2653 28.5494L32.5582 31.8169C33.9724 32.3992 35.5025 32.6338 36.9167 32.6338C41.2752 32.749 43.9838 30.6502 43.9838 27.5C43.9838 23.5329 38.4467 23.3004 38.4467 21.5514ZM58 32.5165L54.82 17.3498H51.4044C50.6972 17.3498 49.9901 17.8169 49.7544 18.5165L43.8659 32.5165H47.9887L48.8116 30.3004H53.8772L54.3486 32.5165H58ZM51.9936 21.4342L53.1701 27.1502H49.8723L51.9936 21.4342Z" fill="#172B85"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 -9 58 58" fill="none">
+                        <rect x="0.5" y="0.5" width="57" height="39" rx="3.5" fill="white" stroke="#F3F3F3"/>
+                        <path d="M34.3102 28.9765H23.9591V10.5122H34.3102V28.9765Z" fill="#FF5F00"/>
+                        <path d="M24.6223 19.7429C24.6223 15.9973 26.3891 12.6608 29.1406 10.5107C27.1285 8.93843 24.5892 7.99998 21.8294 7.99998C15.2961 7.99998 10 13.2574 10 19.7429C10 26.2283 15.2961 31.4857 21.8294 31.4857C24.5892 31.4857 27.1285 30.5473 29.1406 28.975C26.3891 26.8249 24.6223 23.4884 24.6223 19.7429" fill="#EB001B"/>
+                        <path d="M48.2706 19.7429C48.2706 26.2283 42.9745 31.4857 36.4412 31.4857C33.6814 31.4857 31.1421 30.5473 29.1293 28.975C31.8815 26.8249 33.6483 23.4884 33.6483 19.7429C33.6483 15.9973 31.8815 12.6608 29.1293 10.5107C31.1421 8.93843 33.6814 7.99998 36.4412 7.99998C42.9745 7.99998 48.2706 13.2574 48.2706 19.7429" fill="#F79E1B"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                      </p>
+                      <p class="text-xs tracking-wide">3 cuotas sin interés de {{cuotas price "arg"}}</p>
                     </div>
+                    <button aria-label="Agregar al carrito"
+                      class="addToCart p-2 min-[400px]:p-2 rounded-full bg-white border border-gray-300 flex items-center justify-center group shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-400 hover:bg-gray-50"
+                      data-product-id="{{_id}}" type="button">
+                        <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black"
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 26 26" fill="none">
+                          <path
+                            d="M12.6892 21.125C12.6892 22.0225 11.9409 22.75 11.0177 22.75C10.0946 22.75 9.34632 22.0225 9.34632 21.125M19.3749 21.125C19.3749 22.0225 18.6266 22.75 17.7035 22.75C16.7804 22.75 16.032 22.0225 16.032 21.125M4.88917 6.5L6.4566 14.88C6.77298 16.5715 6.93117 17.4173 7.53301 17.917C8.13484 18.4167 8.99525 18.4167 10.7161 18.4167H18.0056C19.7266 18.4167 20.587 18.4167 21.1889 17.9169C21.7907 17.4172 21.9489 16.5714 22.2652 14.8798L22.8728 11.6298C23.3172 9.25332 23.5394 8.06508 22.8896 7.28254C22.2398 6.5 21.031 6.5 18.6133 6.5H4.88917ZM4.88917 6.5L4.33203 3.25"
+                            stroke="" stroke-width="1.6" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                  </div>
+                  <p class="!w-full text-xs rounded-md bg-[#24AE7C] hover:bg-[#31c28d] hover:transition-all text-[var(--main-text-dark)]  p-[0.15rem] select-none px-2 text-center">-20% DESCUENTO por transferencia</p>
                 </div>
-                {{!-- <button aria-label="Agregar al carrito"
-                  class="addToCart p-2 min-[400px]:p-4 rounded-full bg-white border border-gray-300 flex items-center justify-center group shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-400 hover:bg-gray-50"
-                  data-product-id="{{_id}}" type="button">
-                  <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black"
-                    xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-                    <path
-                      d="M12.6892 21.125C12.6892 22.0225 11.9409 22.75 11.0177 22.75C10.0946 22.75 9.34632 22.0225 9.34632 21.125M19.3749 21.125C19.3749 22.0225 18.6266 22.75 17.7035 22.75C16.7804 22.75 16.032 22.0225 16.032 21.125M4.88917 6.5L6.4566 14.88C6.77298 16.5715 6.93117 17.4173 7.53301 17.917C8.13484 18.4167 8.99525 18.4167 10.7161 18.4167H18.0056C19.7266 18.4167 20.587 18.4167 21.1889 17.9169C21.7907 17.4172 21.9489 16.5714 22.2652 14.8798L22.8728 11.6298C23.3172 9.25332 23.5394 8.06508 22.8896 7.28254C22.2398 6.5 21.031 6.5 18.6133 6.5H4.88917ZM4.88917 6.5L4.33203 3.25"
-                      stroke="" stroke-width="1.6" stroke-linecap="round" />
-                  </svg>
-                </button> --}}
               </div>
             </div>
             {{/each}}
