@@ -242,6 +242,18 @@ clientRouter.get(
         products,
         productsCategoriesComponent,
         categorySelectTitle,
+        hasPrevPage: page > 1,
+        hasNextPage: page < totalPages,
+        prevLink:
+          page > 1
+            ? `/productos/buscar/${keywords}?limit=${limit}&page=${page - 1}`
+            : null,
+        nextLink:
+          page < totalPages
+            ? `/productos/buscar/${keywords}?limit=${limit}&page=${
+                parseInt(page) + 1
+              }`
+            : null,
         pages,
         sort,
       });
@@ -263,6 +275,7 @@ clientRouter.get(
       const slug = req.params.slug || "";
       const limit = req.query.limit || 10;
       const page = req.query.page || 1;
+      const sort = req.query.sort || null;
       const response = await productsController.findByCategory(
         req,
         res,
@@ -292,7 +305,20 @@ clientRouter.get(
         productsCategoriesComponent,
         categoryBySlug,
         categorySelectTitle,
+        hasPrevPage: page > 1,
+        hasNextPage: page < totalPages,
+        prevLink:
+          page > 1
+            ? `/productos/categoria/${slug}?limit=${limit}&page=${page - 1}`
+            : null,
+        nextLink:
+          page < totalPages
+            ? `/productos/categoria/${slug}?limit=${limit}&page=${
+                parseInt(page) + 1
+              }`
+            : null,
         pages,
+        sort,
       });
     } catch (error) {
       logger.error("Error al obtener productos:", error);
