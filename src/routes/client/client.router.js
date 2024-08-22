@@ -101,7 +101,7 @@ clientRouter.get("/productos", userMiddleware, async (req, res) => {
     const description = "Listado de todos nuestros productos.";
     const screen = "products";
     const query = req.query.query || "";
-    const limit = req.query.limit || 12;
+    const limit = req.query.limit || 10000;
     const page = req.query.page || 1;
     const sort = req.query.sort || null;
     const response = await productsController.getProducts(
@@ -148,14 +148,7 @@ clientRouter.get("/productos", userMiddleware, async (req, res) => {
   }
 });
 
-// clientRouter.get("/producto/:pid", (req, res) => {
-//   const title = "Producto";
-//   const description = "Detalle del producto.";
-//   res.render("client/view-product", {
-//     title,
-//     description,
-//   });
-// });
+
 clientRouter.get("/producto/:slug", async (req, res) => {
   try {
     const { slug } = req.params;
@@ -210,7 +203,7 @@ clientRouter.get(
       const description = "Listado de todos nuestros productos.";
       const screen = "products";
       const keywords = req.params.keywords || "";
-      const limit = req.query.limit || 12;
+      const limit = req.query.limit || 10000;
       const page = req.query.page || 1;
       const sort = req.query.sort || null;
       const response = await productsController.findByKeywords(
@@ -273,7 +266,7 @@ clientRouter.get(
       const description = "Listado de todos nuestros productos.";
       const screen = "products";
       const slug = req.params.slug || "";
-      const limit = req.query.limit || 12;
+      const limit = req.query.limit || 10000;
       const page = req.query.page || 1;
       const sort = req.query.sort || null;
       const response = await productsController.findByCategory(
