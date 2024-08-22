@@ -101,7 +101,7 @@ clientRouter.get("/productos", userMiddleware, async (req, res) => {
     const description = "Listado de todos nuestros productos.";
     const screen = "products";
     const query = req.query.query || "";
-    const limit = req.query.limit || 10000;
+    const limit = req.query.limit || 12;
     const page = req.query.page || 1;
     const sort = req.query.sort || null;
     const response = await productsController.getProducts(
@@ -203,7 +203,7 @@ clientRouter.get(
       const description = "Listado de todos nuestros productos.";
       const screen = "products";
       const keywords = req.params.keywords || "";
-      const limit = req.query.limit || 10000;
+      const limit = req.query.limit || 12;
       const page = req.query.page || 1;
       const sort = req.query.sort || null;
       const response = await productsController.findByKeywords(
@@ -266,7 +266,7 @@ clientRouter.get(
       const description = "Listado de todos nuestros productos.";
       const screen = "products";
       const slug = req.params.slug || "";
-      const limit = req.query.limit || 10000;
+      const limit = req.query.limit || 12;
       const page = req.query.page || 1;
       const sort = req.query.sort || null;
       const response = await productsController.findByCategory(
