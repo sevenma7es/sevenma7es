@@ -148,7 +148,6 @@ clientRouter.get("/productos", userMiddleware, async (req, res) => {
   }
 });
 
-
 clientRouter.get("/producto/:slug", async (req, res) => {
   try {
     const { slug } = req.params;
@@ -214,6 +213,7 @@ clientRouter.get(
         page,
         sort
       );
+
       const products = response.ResultSet;
       const categories = await categoriesController.getAll();
       const productsCategoriesComponent = productsCategories(categories);
