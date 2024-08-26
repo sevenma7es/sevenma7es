@@ -2859,6 +2859,10 @@ video {
   stroke: var(--main-light-1);
 }
 
+.dark\:stroke-black:is([data-mode="dark"] *) {
+  stroke: #000;
+}
+
 .dark\:text-\[var\(--main-light-1\)\]:is([data-mode="dark"] *) {
   color: var(--main-light-1);
 }
