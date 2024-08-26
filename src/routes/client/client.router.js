@@ -137,7 +137,7 @@ clientRouter.get("/productos", userMiddleware, async (req, res) => {
       hasNextPage: page < totalPages,
       prevLink: page > 1 ? `/productos?limit=${limit}&page=${page - 1}` : null,
       nextLink:
-        page < totalPages
+        page <= totalPages
           ? `/productos?limit=${limit}&page=${parseInt(page) + 1}`
           : null,
       sort,
@@ -242,7 +242,7 @@ clientRouter.get(
             ? `/productos/buscar/${keywords}?limit=${limit}&page=${page - 1}`
             : null,
         nextLink:
-          page < totalPages
+          page <= totalPages
             ? `/productos/buscar/${keywords}?limit=${limit}&page=${
                 parseInt(page) + 1
               }`
@@ -305,7 +305,7 @@ clientRouter.get(
             ? `/productos/categoria/${slug}?limit=${limit}&page=${page - 1}`
             : null,
         nextLink:
-          page < totalPages
+          page <= totalPages
             ? `/productos/categoria/${slug}?limit=${limit}&page=${
                 parseInt(page) + 1
               }`

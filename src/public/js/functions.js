@@ -33,6 +33,10 @@ export function loadScripts(level) {
     page = "/producto";
   }
 
+  if (page.endsWith("/")) {
+    page = page.slice(0, -1);
+  }
+
   switch (page) {
     case "":
     case "/":
@@ -142,11 +146,14 @@ export function addToCart(productId, productQuantity) {
       total: 0,
     };
 
-    const existingProductIndex = cart.products.findIndex((product) => product.id === _id);
+    const existingProductIndex = cart.products.findIndex(
+      (product) => product.id === _id
+    );
 
     let totalQuantity;
     if (existingProductIndex !== -1) {
-      cart.total = cart.total - price * cart.products[existingProductIndex].quantity;
+      cart.total =
+        cart.total - price * cart.products[existingProductIndex].quantity;
       if (productQuantity > 1) {
         cart.products[existingProductIndex].quantity += productQuantity;
       } else {
@@ -204,7 +211,12 @@ export function addToCart(productId, productQuantity) {
 }
 
 export function toast(options = {}) {
-  const { status = "success", message = "Operación realizada con éxito.", position = "bottom-end", timer = 3000 } = options;
+  const {
+    status = "success",
+    message = "Operación realizada con éxito.",
+    position = "bottom-end",
+    timer = 3000,
+  } = options;
 
   const Toast = Swal.mixin({
     toast: true,
@@ -307,10 +319,15 @@ export function cartIconProductCounter() {
       .then((response) => response.json())
       .then((data) => {
         if (data.products.length > 0) {
-          $("#product-counter-desktop, #product-counter-mobile").removeClass("hidden").addClass("flex").text(data.products.length);
+          $("#product-counter-desktop, #product-counter-mobile")
+            .removeClass("hidden")
+            .addClass("flex")
+            .text(data.products.length);
           $("#item-count").text(`${data.products.length} Items`);
         } else {
-          $("#product-counter-desktop, #product-counter-mobile").removeClass("flex").addClass("hidden");
+          $("#product-counter-desktop, #product-counter-mobile")
+            .removeClass("flex")
+            .addClass("hidden");
           $("#item-count").text(`0 Items`);
         }
       })
@@ -323,14 +340,16 @@ export function cartIconProductCounter() {
         .removeClass("hidden")
         .addClass("flex")
         .text(JSON.parse(localStorage.getItem("cart")).products.length);
-      
-        $("#item-count").text(`${JSON.parse(localStorage.getItem("cart")).products.length} Items`);
+
+      $("#item-count").text(
+        `${JSON.parse(localStorage.getItem("cart")).products.length} Items`
+      );
     } else {
       $("#product-counter-desktop, #product-counter-mobile")
         .removeClass("flex")
-        .addClass("hidden")
-      
-        $("#item-count").text(`0 Items`);
+        .addClass("hidden");
+
+      $("#item-count").text(`0 Items`);
     }
   }
 }

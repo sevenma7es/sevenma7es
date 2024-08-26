@@ -4,7 +4,7 @@
   .swiper-slide { height: auto; width: auto; cursor: pointer; } .swiper-wrapper
   { height: auto; } .nav-for-slider .swiper-slide img { border: 2px solid
   transparent; border-radius: 10px; } .nav-for-slider .swiper-slide-thumb-active
-  img { border-color: rgb(79 70 229); }
+  img { border-color: rgb(0, 0, 0); cursor: pointer; }
 </style>
 <section>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:min-h-[90vh] lg:h-fit">
@@ -21,7 +21,7 @@
                 class="swiper-slide flex justify-center items-center w-full border border-[var(--main-bg-light)] dark:border-[var(--main-bg-dark)] overflow-hidden"
               >
                 <img
-                  class="h-full object-cover"
+                  class="h-full object-cover cursor-pointer"
                   src="{{this}}"
                   alt="{{product.title}}"
                 />
@@ -67,7 +67,7 @@
           </div>
 
           <div class="flex flex-row items-center mb-8 gap-y-3">
-            <div class="flex items-center">
+            {{!-- <div class="flex items-center">
               <h5
                 class="font-manrope font-semibold text-2xl leading-9 text-[var(--main-text-light)] dark:text-[var(--main-text-dark)]"
               >{{currency product.price "arg"}}
@@ -77,6 +77,84 @@
                   class="ml-3 font-semibold text-lg text-[var(--main-dark-1)]"
                 >{{product.discount}}% off</span>
               {{/if}}
+            </div> --}}
+            <div class="flex flex-col">
+              <p
+                class="font-semibold text-xl leading-8 text-[var(--main-dark-5)] dark:text-[var(--main-light-5)] flex items-center gap-2"
+              >
+                {{currency product.price "arg"}}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28px"
+                  height="28px"
+                  viewBox="0 -11 70 70"
+                  fill="none"
+                >
+                  <rect
+                    x="0.5"
+                    y="0.5"
+                    width="69"
+                    height="47"
+                    rx="5.5"
+                    fill="white"
+                    stroke="#D9D9D9"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M21.2505 32.5165H17.0099L13.8299 20.3847C13.679 19.8267 13.3585 19.3333 12.8871 19.1008C11.7106 18.5165 10.4142 18.0514 9 17.8169V17.3498H15.8313C16.7742 17.3498 17.4813 18.0514 17.5991 18.8663L19.2491 27.6173L23.4877 17.3498H27.6104L21.2505 32.5165ZM29.9675 32.5165H25.9626L29.2604 17.3498H33.2653L29.9675 32.5165ZM38.4467 21.5514C38.5646 20.7346 39.2717 20.2675 40.0967 20.2675C41.3931 20.1502 42.8052 20.3848 43.9838 20.9671L44.6909 17.7016C43.5123 17.2345 42.216 17 41.0395 17C37.1524 17 34.3239 19.1008 34.3239 22.0165C34.3239 24.2346 36.3274 25.3992 37.7417 26.1008C39.2717 26.8004 39.861 27.2675 39.7431 27.9671C39.7431 29.0165 38.5646 29.4836 37.3881 29.4836C35.9739 29.4836 34.5596 29.1338 33.2653 28.5494L32.5582 31.8169C33.9724 32.3992 35.5025 32.6338 36.9167 32.6338C41.2752 32.749 43.9838 30.6502 43.9838 27.5C43.9838 23.5329 38.4467 23.3004 38.4467 21.5514ZM58 32.5165L54.82 17.3498H51.4044C50.6972 17.3498 49.9901 17.8169 49.7544 18.5165L43.8659 32.5165H47.9887L48.8116 30.3004H53.8772L54.3486 32.5165H58ZM51.9936 21.4342L53.1701 27.1502H49.8723L51.9936 21.4342Z"
+                    fill="#172B85"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28px"
+                  height="28px"
+                  viewBox="0 -9 58 58"
+                  fill="none"
+                >
+                  <rect
+                    x="0.5"
+                    y="0.5"
+                    width="57"
+                    height="39"
+                    rx="3.5"
+                    fill="white"
+                    stroke="#F3F3F3"
+                  />
+                  <path
+                    d="M34.3102 28.9765H23.9591V10.5122H34.3102V28.9765Z"
+                    fill="#FF5F00"
+                  />
+                  <path
+                    d="M24.6223 19.7429C24.6223 15.9973 26.3891 12.6608 29.1406 10.5107C27.1285 8.93843 24.5892 7.99998 21.8294 7.99998C15.2961 7.99998 10 13.2574 10 19.7429C10 26.2283 15.2961 31.4857 21.8294 31.4857C24.5892 31.4857 27.1285 30.5473 29.1406 28.975C26.3891 26.8249 24.6223 23.4884 24.6223 19.7429"
+                    fill="#EB001B"
+                  />
+                  <path
+                    d="M48.2706 19.7429C48.2706 26.2283 42.9745 31.4857 36.4412 31.4857C33.6814 31.4857 31.1421 30.5473 29.1293 28.975C31.8815 26.8249 33.6483 23.4884 33.6483 19.7429C33.6483 15.9973 31.8815 12.6608 29.1293 10.5107C31.1421 8.93843 33.6814 7.99998 36.4412 7.99998C42.9745 7.99998 48.2706 13.2574 48.2706 19.7429"
+                    fill="#F79E1B"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-credit-card"
+                ><rect width="20" height="14" x="2" y="5" rx="2" /><line
+                    x1="2"
+                    x2="22"
+                    y1="10"
+                    y2="10"
+                  /></svg>
+              </p>
+              <p class="text-sm tracking-wide">3 cuotas sin interés de
+                {{cuotas product.price "arg"}}</p>
             </div>
           </div>
           <div class="flex items-center flex-row gap-3 mb-8">
@@ -151,6 +229,9 @@
             </svg>
             Agregar al carrito
           </button>
+          <p
+            class="mt-2 !w-full text-xs rounded-md bg-[#24AE7C] hover:bg-[#31c28d] hover:transition-all text-[var(--main-text-dark)] p-[0.15rem] select-none px-2 text-center"
+          >-20% DESCUENTO por transferencia</p>
         </div>
       </div>
     </div>
