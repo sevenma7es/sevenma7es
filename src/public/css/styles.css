@@ -909,9 +909,6 @@ video {
 .h-\[32px\] {
   height: 32px;
 }
-.h-\[40vh\] {
-  height: 40vh;
-}
 .h-\[80px\] {
   height: 80px;
 }
@@ -936,6 +933,9 @@ video {
 }
 .max-h-\[350px\] {
   max-height: 350px;
+}
+.max-h-\[40vh\] {
+  max-height: 40vh;
 }
 .max-h-screen {
   max-height: 100vh;
@@ -3390,12 +3390,12 @@ video {
     height: 80px;
   }
 
-  .md\:h-\[80vh\] {
-    height: 80vh;
-  }
-
   .md\:h-screen {
     height: 100vh;
+  }
+
+  .md\:max-h-\[90vh\] {
+    max-height: 90vh;
   }
 
   .md\:w-\[50\%\] {
