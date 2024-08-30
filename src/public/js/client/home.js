@@ -8,7 +8,7 @@ $(document).ready(function () {
 
   // Carousel functionality
   let currentIndex = 0;
-  let itemsCount = 3;
+  let itemsCount = 4;
 
   function goToSlide(index) {
     $("#carousel-wrapper").children("div").removeClass("active").addClass("hidden");
